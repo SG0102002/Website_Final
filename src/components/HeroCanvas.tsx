@@ -1,8 +1,8 @@
 'use client'
 
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
-import { OrbitControls, MeshTransmissionMaterial, RoundedBox, useCursor } from '@react-three/drei'
-import { Physics, RigidBody, BallCollider } from '@react-three/rapier'
+import { Canvas, useFrame, useThree, type ThreeEvent } from '@react-three/fiber'
+import { MeshTransmissionMaterial, RoundedBox, useCursor } from '@react-three/drei'
+import { Physics, RigidBody, BallCollider, type RapierRigidBody } from '@react-three/rapier'
 import { Suspense, useRef, useState } from 'react'
 import * as THREE from 'three'
 
@@ -10,7 +10,7 @@ import * as THREE from 'three'
 const mousePosition = new THREE.Vector2(0, 0)
 
 function FloatingShape({ position, geometry }: { position: [number, number, number], geometry: 'box' | 'sphere' }) {
-  const rigidBodyRef = useRef<any>(null)
+  const rigidBodyRef = useRef<RapierRigidBody>(null)
   const [hovered, setHovered] = useState(false)
   useCursor(hovered)
   const { camera, size } = useThree()
@@ -53,7 +53,7 @@ function FloatingShape({ position, geometry }: { position: [number, number, numb
     }
   })
 
-  const handlePointerDown = (e: any) => {
+  const handlePointerDown = (e: ThreeEvent<PointerEvent>) => {
     e.stopPropagation()
     if (rigidBodyRef.current) {
       // Add bigger impulse when clicked
