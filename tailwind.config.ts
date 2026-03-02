@@ -17,7 +17,17 @@ const config: Config = {
   					dark: '#059669',
   					light: '#34D399'
   				},
-  				slate: '#0F172A'
+  				purple: {
+  					DEFAULT: '#8B5CF6',
+  					dark: '#7C3AED',
+  					light: '#A78BFA',
+  					glow: 'rgba(139, 92, 246, 0.2)'
+  				},
+  				slate: '#0F172A',
+  				dark: {
+  					DEFAULT: '#1E293B',
+  					alt: '#0F172A'
+  				}
   			},
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',

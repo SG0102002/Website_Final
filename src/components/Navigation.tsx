@@ -66,7 +66,7 @@ export function Navigation({ activeSection }: NavigationProps) {
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="navIndicator"
-                      className="absolute inset-0 bg-vibrant-green rounded-full -z-10"
+                      className="absolute inset-0 bg-vibrant-purple rounded-full -z-10"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -106,7 +106,7 @@ export function Navigation({ activeSection }: NavigationProps) {
                     onClick={() => scrollToSection(item.id)}
                     className={`block w-full text-left text-2xl font-bold py-5 px-6 rounded-2xl transition-all ${
                       activeSection === item.id
-                        ? 'bg-vibrant-green text-white'
+                        ? 'bg-vibrant-purple text-white'
                         : 'text-vibrant-slate hover:bg-vibrant-slate/10'
                     }`}
                   >

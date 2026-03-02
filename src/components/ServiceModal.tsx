@@ -59,66 +59,99 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
               <X className="w-6 h-6 text-vibrant-slate" />
             </button>
 
-            <div className="p-8 md:p-12">
-              <div className="grid md:grid-cols-2 gap-8">
+            <div className="p-8 md:p-12 space-y-8">
 
-                {/* Left: Visual Placeholder */}
-                <div className="aspect-video rounded-2xl bg-gradient-to-br from-vibrant-green/20 to-vibrant-green/5 flex items-center justify-center border border-vibrant-green/20">
-                  <div className="text-center space-y-3">
-                    <div className="w-16 h-16 mx-auto rounded-full bg-vibrant-green/20 flex items-center justify-center">
-                      <span className="text-2xl font-mono text-vibrant-green font-bold">
-                        {service.id}
-                      </span>
-                    </div>
-                    <p className="text-sm font-mono text-vibrant-slate/60">Preview</p>
+              {/* Header */}
+              <div className="space-y-4">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-vibrant-purple/20 flex items-center justify-center border border-vibrant-purple/30">
+                    <span className="text-2xl font-mono text-vibrant-purple font-bold">
+                      {service.id}
+                    </span>
                   </div>
-                </div>
-
-                {/* Right: Content */}
-                <div className="space-y-6">
-                  <div className="space-y-3">
-                    <h2 className="text-3xl md:text-4xl font-bold text-vibrant-slate">
+                  <div className="flex-1">
+                    <h2 className="text-3xl md:text-4xl font-bold text-vibrant-slate leading-tight">
                       {service.title}
                     </h2>
-                    <p className="text-vibrant-slate/70 leading-relaxed">
-                      {service.description}
-                    </p>
                   </div>
-
-                  {/* Impact Metric */}
-                  <div className="p-4 rounded-xl bg-vibrant-green/10 border border-vibrant-green/20">
-                    <p className="text-sm font-mono text-vibrant-green/80 mb-1">Impact</p>
-                    <p className="font-semibold text-vibrant-slate">{service.impactMetric}</p>
-                  </div>
-
-                  {/* Tech Stack */}
-                  {service.techStack && service.techStack.length > 0 && (
-                    <div className="space-y-2">
-                      <p className="text-sm font-mono text-vibrant-slate/60">Tech Stack</p>
-                      <div className="flex flex-wrap gap-2">
-                        {service.techStack.map((tech) => (
-                          <span
-                            key={tech}
-                            className="px-3 py-1 text-xs font-mono rounded-full bg-vibrant-slate/10 text-vibrant-slate border border-vibrant-slate/20"
-                          >
-                            {tech}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  )}
-
-                  {/* CTA */}
-                  <Button
-                    onClick={scrollToContact}
-                    size="lg"
-                    className="w-full bg-vibrant-green hover:bg-vibrant-green-dark text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-vibrant-green/25"
-                  >
-                    Let&apos;s Talk
-                  </Button>
                 </div>
 
+                <p className="text-lg text-vibrant-slate/70 leading-relaxed">
+                  {service.fullDescription}
+                </p>
               </div>
+
+              {/* Designed For Section */}
+              <div className="p-6 rounded-2xl bg-gradient-to-br from-vibrant-purple/5 to-transparent border border-vibrant-purple/20">
+                <h3 className="text-sm font-mono font-semibold text-vibrant-purple uppercase tracking-wider mb-4">
+                  Designed For
+                </h3>
+                <ul className="grid md:grid-cols-2 gap-3">
+                  {service.designedFor.map((audience, idx) => (
+                    <li key={idx} className="flex items-start gap-2">
+                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-vibrant-purple mt-2" />
+                      <span className="text-vibrant-slate/80">{audience}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Benefits Section */}
+              <div>
+                <h3 className="text-sm font-mono font-semibold text-vibrant-slate/60 uppercase tracking-wider mb-4">
+                  What We Build
+                </h3>
+                <ul className="space-y-3">
+                  {service.benefits.map((benefit, idx) => (
+                    <li key={idx} className="flex items-start gap-3">
+                      <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-vibrant-purple/20 flex items-center justify-center mt-0.5">
+                        <svg className="w-3 h-3 text-vibrant-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+                        </svg>
+                      </div>
+                      <span className="text-vibrant-slate/80 leading-relaxed">{benefit}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Impact Metric */}
+              {service.impactMetric && (
+                <div className="p-5 rounded-xl bg-vibrant-slate/5 border-l-4 border-vibrant-purple">
+                  <p className="text-vibrant-slate/80 leading-relaxed italic">
+                    {service.impactMetric}
+                  </p>
+                </div>
+              )}
+
+              {/* Tech Stack */}
+              {service.techStack && service.techStack.length > 0 && (
+                <div className="space-y-3">
+                  <p className="text-sm font-mono text-vibrant-slate/60 uppercase tracking-wider">Technologies</p>
+                  <div className="flex flex-wrap gap-2">
+                    {service.techStack.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-4 py-2 text-sm font-mono rounded-full bg-vibrant-slate/10 text-vibrant-slate border border-vibrant-slate/20 hover:border-vibrant-purple/40 transition-colors"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              )}
+
+              {/* CTA */}
+              <div className="pt-4">
+                <Button
+                  onClick={scrollToContact}
+                  size="lg"
+                  className="w-full bg-vibrant-purple hover:bg-vibrant-purple-dark text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-vibrant-purple/25 py-6 text-lg"
+                >
+                  Let&apos;s Discuss Your Project
+                </Button>
+              </div>
+
             </div>
           </motion.div>
         </motion.div>

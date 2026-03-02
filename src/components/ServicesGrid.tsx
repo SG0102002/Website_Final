@@ -9,31 +9,104 @@ import { ArrowUpRight } from 'lucide-react'
 const services: Service[] = [
   {
     id: '01',
-    title: 'Automated Variance Analysis',
-    description: 'A custom-built engine designed to compare complex Excel files instantly. Built specifically to eliminate hours of manual cross-checking for accountants, auditors, and real estate professionals.',
-    impactMetric: 'Eliminates manual data comparison errors.',
-    techStack: ['Python', 'Pandas', 'Excel API', 'FastAPI']
+    title: 'Automated Excel Comparison & Data Validation',
+    shortDescription: 'Automated Excel comparison systems that detect inconsistencies, highlight mismatches, and reduce manual reconciliation hours for finance teams.',
+    fullDescription: 'Many SMEs rely heavily on Excel for reporting, reconciliation, budgeting, and compliance. Manual cross-checking between complex spreadsheets is time-consuming and prone to error.',
+    designedFor: [
+      'Accountants',
+      'Auditors',
+      'Finance teams',
+      'Real estate professionals',
+      'Operations managers'
+    ],
+    benefits: [
+      'Compare large, multi-sheet Excel files instantly',
+      'Detect inconsistencies and discrepancies',
+      'Highlight missing or mismatched data',
+      'Reduce manual reconciliation hours',
+      'Improve reporting accuracy'
+    ],
+    impactMetric: 'Especially valuable for firms handling financial audits, property reconciliations, cost tracking, and compliance reporting.',
+    techStack: ['Python', 'Pandas', 'openpyxl', 'FastAPI', 'Excel API']
   },
   {
     id: '02',
-    title: 'Knowledge & Search Systems',
-    description: 'Enterprise-grade systems for finding and retrieving internal information. We design AI-powered document retrieval for large knowledge bases using vector search with filtering for accurate, contextual results.',
-    impactMetric: 'Reduced information retrieval time by 70% for internal teams.',
-    techStack: ['LangChain', 'Pinecone', 'OpenAI', 'React']
+    title: 'Custom Website Development',
+    shortDescription: 'Modern, secure, and scalable websites custom-built for business growth—not template-based.',
+    fullDescription: 'We develop modern, secure, and scalable websites tailored to your operations. Whether it\'s a corporate site, booking system, or secure client portal, we ensure your website supports your business — not just markets it.',
+    designedFor: [
+      'SMEs establishing digital presence',
+      'Service-based businesses',
+      'Professional firms',
+      'Companies needing client portals',
+      'Internal dashboards'
+    ],
+    benefits: [
+      'Custom-built (not template-based)',
+      'Structured for performance and scalability',
+      'Designed for credibility and authority',
+      'Integrated with internal systems where required'
+    ],
+    techStack: ['Next.js', 'React', 'TypeScript', 'Tailwind CSS', 'PostgreSQL']
   },
   {
     id: '03',
-    title: 'Internal Workflow Automation',
-    description: 'Streamlining repetitive processes to free up human capacity. We integrate disconnected systems to eliminate manual data transfer and build self-service tools to reduce dependency on technical teams.',
-    impactMetric: 'Eliminated 15+ hours of manual work per week per team.',
-    techStack: ['n8n', 'Zapier', 'Python', 'API Integration']
+    title: 'Smart Search & Internal Knowledge Systems',
+    shortDescription: 'Intelligent search systems that allow teams to find documents instantly using natural language, reducing time spent searching through folders.',
+    fullDescription: 'As companies grow, finding the right document quickly becomes difficult. We build intelligent search systems with natural language capabilities and smart filtering.',
+    designedFor: [
+      'Companies with large internal documentation',
+      'HR departments',
+      'Legal & compliance teams',
+      'Engineering and project-based firms',
+      'Operations-heavy businesses'
+    ],
+    benefits: [
+      'Search documents in natural language',
+      'Filter by department, project, or category',
+      'Retrieve relevant files instantly',
+      'Reduce time spent searching through folders'
+    ],
+    impactMetric: 'Significantly improves productivity for document-driven businesses.',
+    techStack: ['LangChain', 'Pinecone', 'OpenAI', 'React', 'Vector Search']
   },
   {
     id: '04',
-    title: 'High-Performance Web Architecture',
-    description: 'As an AI Engineer and Web Designer, I build websites that aren\'t just templates. We create fast, unique, and highly interactive digital experiences that position your brand as a technical authority.',
-    impactMetric: 'Scalable, unique digital presence.',
-    techStack: ['Next.js', 'React', 'Three.js', 'Tailwind CSS']
+    title: 'Workflow Automation & Software Integration',
+    shortDescription: 'Connect your software tools and automate repetitive workflows to eliminate duplicate data entry and reduce operational errors.',
+    fullDescription: 'We design systems that connect your software tools and automate repetitive workflows. Instead of adding more manual steps, we simplify and streamline your operations.',
+    designedFor: [
+      'SMEs using multiple disconnected tools',
+      'Businesses managing repetitive manual processes',
+      'Teams relying on spreadsheet-based operations'
+    ],
+    benefits: [
+      'Eliminate duplicate data entry',
+      'Sync data across systems',
+      'Automate reporting',
+      'Reduce operational errors',
+      'Improve process clarity'
+    ],
+    techStack: ['n8n', 'Zapier', 'Microsoft 365', 'Google Workspace', 'Python', 'API Integration']
+  },
+  {
+    id: '05',
+    title: 'CAD to BIM Digital Transformation',
+    shortDescription: 'Digital solutions that help transition traditional CAD workflows into structured BIM-ready environments.',
+    fullDescription: 'We develop digital solutions that help architecture and engineering firms modernize their workflows while maintaining efficiency and project accuracy.',
+    designedFor: [
+      'Architecture firms',
+      'Engineering consultancies',
+      'Construction companies',
+      'Real estate developers'
+    ],
+    benefits: [
+      'Convert CAD drawings into structured BIM-compatible data',
+      'Reduce repetitive modeling work',
+      'Improve data consistency across projects',
+      'Support scalable digital construction processes'
+    ],
+    impactMetric: 'Helps firms modernize their workflows while maintaining efficiency and project accuracy.'
   }
 ]
 
@@ -42,79 +115,81 @@ export function ServicesGrid() {
 
   return (
     <>
-      <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 py-24">
+      <div className="bg-vibrant-dark relative overflow-hidden">
+        {/* Subtle dot pattern background */}
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(124 58 237) 1px, transparent 0)`,
+          backgroundSize: '40px 40px'
+        }} />
 
-        {/* Section Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center mb-16 space-y-4"
-        >
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-vibrant-slate">
-            What We Build
-          </h2>
-          <p className="text-lg md:text-xl text-vibrant-slate/70 max-w-2xl mx-auto">
-            End-to-end solutions designed to solve real problems
-          </p>
-        </motion.div>
+        <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 py-20 md:py-32 relative z-10">
 
-        {/* Services Grid */}
-        <div className="grid md:grid-cols-2 gap-6 lg:gap-8">
-          {services.map((service, index) => (
-            <motion.div
-              key={service.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1, duration: 0.6 }}
-              whileHover={{ y: -8, scale: 1.02 }}
-              onClick={() => setSelectedService(service)}
-              className="group relative p-8 rounded-3xl bg-white border border-vibrant-slate/10 hover:border-vibrant-green/50 hover:shadow-2xl hover:shadow-vibrant-green/10 transition-all duration-500 cursor-pointer overflow-hidden"
-            >
-              {/* Glow Effect on Hover */}
-              <div className="absolute inset-0 bg-gradient-to-br from-vibrant-green/0 to-vibrant-green/0 group-hover:from-vibrant-green/5 group-hover:to-vibrant-green/0 transition-all duration-500 rounded-3xl" />
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.8 }}
+            className="text-center mb-16 space-y-4"
+          >
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-purple mb-2">
+              What We Build
+            </span>
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
+              Systems That Solve Real Problems
+            </h2>
+            <p className="text-lg md:text-xl text-white/60 max-w-2xl mx-auto">
+              End-to-end solutions designed for impact
+            </p>
+          </motion.div>
 
-              <div className="relative space-y-4">
-                {/* Service Number */}
-                <div className="flex items-start justify-between">
-                  <span className="text-5xl font-mono font-bold text-vibrant-green/20 group-hover:text-vibrant-green/40 transition-colors">
-                    {service.id}
-                  </span>
-                  <div className="p-2 rounded-full bg-vibrant-green/10 group-hover:bg-vibrant-green/20 transition-colors">
-                    <ArrowUpRight className="w-5 h-5 text-vibrant-green" />
+          {/* Services Grid - 3 columns on larger screens for 5 services */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+            {services.map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -8 }}
+                onClick={() => setSelectedService(service)}
+                className="group relative p-8 rounded-2xl bg-white/8 border border-white/20 hover:border-vibrant-purple/60 hover:shadow-2xl hover:shadow-vibrant-purple/30 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-sm"
+              >
+                {/* Purple glow on hover */}
+                <div className="absolute inset-0 bg-gradient-to-br from-vibrant-purple/0 to-vibrant-purple/0 group-hover:from-vibrant-purple/10 group-hover:to-transparent transition-all duration-500 rounded-2xl" />
+
+                <div className="relative space-y-4">
+                  {/* Service Number */}
+                  <div className="flex items-start justify-between">
+                    <span className="text-5xl font-mono font-bold text-vibrant-purple/60 group-hover:text-vibrant-purple transition-colors">
+                      {service.id}
+                    </span>
+                    <div className="p-2 rounded-full bg-vibrant-purple/30 group-hover:bg-vibrant-purple/40 transition-colors">
+                      <ArrowUpRight className="w-5 h-5 text-vibrant-purple-light" />
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-vibrant-purple transition-colors">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/70 leading-relaxed line-clamp-3">
+                    {service.shortDescription}
+                  </p>
+
+                  {/* Learn More */}
+                  <div className="pt-2">
+                    <span className="text-sm font-semibold text-vibrant-purple-light group-hover:text-white group-hover:underline transition-colors">
+                      Learn More →
+                    </span>
                   </div>
                 </div>
-
-                {/* Title */}
-                <h3 className="text-2xl md:text-3xl font-bold text-vibrant-slate group-hover:text-vibrant-green transition-colors">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-vibrant-slate/70 leading-relaxed line-clamp-3">
-                  {service.description}
-                </p>
-
-                {/* Impact Badge */}
-                <div className="pt-2">
-                  <div className="inline-block px-4 py-2 rounded-full bg-vibrant-green/10 border border-vibrant-green/20">
-                    <p className="text-sm font-mono text-vibrant-green">
-                      {service.impactMetric}
-                    </p>
-                  </div>
-                </div>
-
-                {/* Learn More */}
-                <div className="pt-2">
-                  <span className="text-sm font-semibold text-vibrant-green group-hover:underline">
-                    Learn More →
-                  </span>
-                </div>
-              </div>
-            </motion.div>
-          ))}
+              </motion.div>
+            ))}
+          </div>
         </div>
       </div>
 

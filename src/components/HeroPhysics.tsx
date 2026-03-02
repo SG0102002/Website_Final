@@ -14,7 +14,7 @@ export function HeroPhysics() {
   }
 
   return (
-    <div className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-b from-white to-vibrant-white">
+    <div className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-b from-white via-white to-purple-50">
       {/* Interactive cursor-following background gradient */}
       <InteractiveBackground />
 
@@ -47,7 +47,7 @@ export function HeroPhysics() {
                 style={{ textShadow: '0 2px 20px rgba(255,255,255,0.8)' }}
               >
                 Build Systems That{' '}
-                <span className="text-vibrant-green">Work</span>
+                <span className="text-vibrant-purple">Work</span>
               </motion.h1>
 
               <motion.p
@@ -71,21 +71,21 @@ export function HeroPhysics() {
               <Button
                 onClick={scrollToContact}
                 size="lg"
-                className="bg-vibrant-green hover:bg-vibrant-green-dark text-white font-semibold px-10 py-7 text-xl rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-vibrant-green/40"
+                className="bg-vibrant-purple hover:bg-vibrant-purple-dark text-white font-semibold px-10 py-7 text-xl rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-vibrant-purple/40"
               >
                 Start a Project
               </Button>
 
               <div className="flex items-center gap-4 backdrop-blur-sm bg-white/30 rounded-full px-6 py-3">
                 <div className="flex -space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-vibrant-green/30 border-2 border-white flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-xs font-mono text-vibrant-green font-bold">AI</span>
+                  <div className="w-10 h-10 rounded-full bg-vibrant-purple/30 border-2 border-white flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-xs font-mono text-vibrant-purple font-bold">AI</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-vibrant-green/30 border-2 border-white flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-xs font-mono text-vibrant-green font-bold">AUTO</span>
+                  <div className="w-10 h-10 rounded-full bg-vibrant-purple/30 border-2 border-white flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-xs font-mono text-vibrant-purple font-bold">AUTO</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-vibrant-green/30 border-2 border-white flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-xs font-mono text-vibrant-green font-bold">WEB</span>
+                  <div className="w-10 h-10 rounded-full bg-vibrant-purple/30 border-2 border-white flex items-center justify-center backdrop-blur-sm">
+                    <span className="text-xs font-mono text-vibrant-purple font-bold">WEB</span>
                   </div>
                 </div>
                 <p className="text-sm text-vibrant-slate font-mono font-semibold">
@@ -108,7 +108,7 @@ export function HeroPhysics() {
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
                   className="w-6 h-10 rounded-full border-2 border-vibrant-slate/30 flex items-start justify-center p-2"
                 >
-                  <div className="w-1.5 h-1.5 bg-vibrant-green rounded-full" />
+                  <div className="w-1.5 h-1.5 bg-vibrant-purple rounded-full" />
                 </motion.div>
               </div>
             </motion.div>
