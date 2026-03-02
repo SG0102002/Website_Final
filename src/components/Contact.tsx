@@ -2,22 +2,60 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Send } from 'lucide-react'
+import { Mail, Send, Calendar } from 'lucide-react'
+import { useForm } from 'react-hook-form'
+import { zodResolver } from '@hookform/resolvers/zod'
+import { toast } from 'sonner'
 import { Input } from '@/components/ui/input'
 import { Textarea } from '@/components/ui/textarea'
 import { Label } from '@/components/ui/label'
+import { contactFormSchema, type ContactFormData } from '@/lib/validations/contact'
+import { BookingForm } from '@/components/BookingForm'
+
+type Tab = 'contact' | 'booking'
 
 export function Contact() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    message: ''
+  const [activeTab, setActiveTab] = useState<Tab>('contact')
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors, isSubmitting }
+  } = useForm<ContactFormData>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      message: ''
+    }
   })
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    console.log('Form submitted:', formData)
-    // TODO: Add API endpoint for form submission
+  const onSubmit = async (data: ContactFormData) => {
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      const result = await response.json()
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message')
+      }
+
+      toast.success(result.message || "Message sent! We'll be in touch soon.")
+      reset()
+    } catch (error) {
+      const errorMessage = error instanceof Error
+        ? error.message
+        : 'Failed to send message. Please try again or email us directly at samiragele010@gmail.com'
+
+      toast.error(errorMessage)
+    }
   }
 
   return (
@@ -57,7 +95,7 @@ export function Contact() {
           </p>
         </motion.div>
 
-        {/* Contact Form */}
+        {/* Tabs & Forms */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -66,7 +104,37 @@ export function Contact() {
         >
           <div className="relative backdrop-blur-xl bg-white/90 p-10 md:p-12 rounded-3xl border border-vibrant-purple/20 shadow-2xl shadow-vibrant-purple/20">
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            {/* Tab Buttons */}
+            <div className="flex gap-2 mb-8 p-1 bg-purple-50/50 rounded-2xl">
+              <button
+                type="button"
+                onClick={() => setActiveTab('contact')}
+                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
+                  activeTab === 'contact'
+                    ? 'bg-vibrant-purple text-white shadow-lg shadow-vibrant-purple/30'
+                    : 'text-vibrant-slate/60 hover:text-vibrant-slate hover:bg-white/50'
+                }`}
+              >
+                <Mail className="w-4 h-4" />
+                Contact Us
+              </button>
+              <button
+                type="button"
+                onClick={() => setActiveTab('booking')}
+                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
+                  activeTab === 'booking'
+                    ? 'bg-vibrant-purple text-white shadow-lg shadow-vibrant-purple/30'
+                    : 'text-vibrant-slate/60 hover:text-vibrant-slate hover:bg-white/50'
+                }`}
+              >
+                <Calendar className="w-4 h-4" />
+                Book Consultation
+              </button>
+            </div>
+
+            {/* Contact Form */}
+            {activeTab === 'contact' && (
+              <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
 
               {/* Name & Email Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -77,12 +145,14 @@ export function Contact() {
                   <Input
                     type="text"
                     id="name"
-                    value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    {...register('name')}
                     className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
                     placeholder="Your name"
-                    required
+                    aria-invalid={errors.name ? 'true' : 'false'}
                   />
+                  {errors.name && (
+                    <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
+                  )}
                 </div>
 
                 <div className="space-y-3">
@@ -92,12 +162,14 @@ export function Contact() {
                   <Input
                     type="email"
                     id="email"
-                    value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    {...register('email')}
                     className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
                     placeholder="your@email.com"
-                    required
+                    aria-invalid={errors.email ? 'true' : 'false'}
                   />
+                  {errors.email && (
+                    <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
+                  )}
                 </div>
               </div>
 
@@ -108,24 +180,27 @@ export function Contact() {
                 </Label>
                 <Textarea
                   id="message"
-                  value={formData.message}
-                  onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                  {...register('message')}
                   rows={5}
                   className="px-5 py-4 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple resize-none transition-all"
                   placeholder="Share your vision with us..."
-                  required
+                  aria-invalid={errors.message ? 'true' : 'false'}
                 />
+                {errors.message && (
+                  <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
+                )}
               </div>
 
               {/* Submit Button & Alt Contact */}
               <div className="flex flex-col sm:flex-row gap-5 items-center pt-4">
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="w-full sm:w-auto px-10 py-4 bg-vibrant-purple text-white font-semibold rounded-full hover:bg-vibrant-purple-dark hover:shadow-xl hover:shadow-vibrant-purple/25 transition-all duration-300 flex items-center justify-center gap-2"
+                  disabled={isSubmitting}
+                  whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
+                  whileTap={!isSubmitting ? { scale: 0.98 } : {}}
+                  className="w-full sm:w-auto px-10 py-4 bg-vibrant-purple text-white font-semibold rounded-full hover:bg-vibrant-purple-dark hover:shadow-xl hover:shadow-vibrant-purple/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Send Message
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send className="w-4 h-4" />
                 </motion.button>
 
@@ -133,14 +208,20 @@ export function Contact() {
                   <Mail size={16} strokeWidth={1.5} />
                   <span>or email</span>
                   <a
-                    href="mailto:contact@su-studio.com"
+                    href="mailto:samiragele010@gmail.com"
                     className="text-vibrant-purple hover:underline font-medium transition-all"
                   >
-                    contact@su-studio.com
+                    samiragele010@gmail.com
                   </a>
                 </div>
               </div>
             </form>
+            )}
+
+            {/* Booking Form */}
+            {activeTab === 'booking' && (
+              <BookingForm />
+            )}
           </div>
         </motion.div>
       </div>
