@@ -52,23 +52,23 @@ export function Contact() {
     } catch (error) {
       const errorMessage = error instanceof Error
         ? error.message
-        : 'Failed to send message. Please try again or email us directly at samiragele010@gmail.com'
+        : 'Failed to send message. Please try again or email us directly at radixs2402@gmail.com'
 
       toast.error(errorMessage)
     }
   }
 
   return (
-    <section id="contact" className="relative py-32 px-8 md:px-12 lg:px-16 bg-gradient-to-br from-slate-100 via-purple-50 to-white overflow-hidden">
+    <section id="contact" className="relative py-32 px-8 md:px-12 lg:px-16 bg-gradient-to-br from-amber-50/30 via-orange-50/20 to-white overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-[0.06]" style={{
-        backgroundImage: `linear-gradient(to right, rgb(139 92 246) 1px, transparent 1px), linear-gradient(to bottom, rgb(139 92 246) 1px, transparent 1px)`,
+        backgroundImage: `linear-gradient(to right, rgb(146 64 14) 1px, transparent 1px), linear-gradient(to bottom, rgb(146 64 14) 1px, transparent 1px)`,
         backgroundSize: '60px 60px'
       }} />
 
-      {/* Purple accent gradient blobs */}
-      <div className="absolute top-40 left-10 w-96 h-96 bg-purple-200/40 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-purple-300/30 rounded-full blur-3xl" />
+      {/* Warm bronze accent gradient blobs */}
+      <div className="absolute top-40 left-10 w-96 h-96 bg-amber-900/15 rounded-full blur-3xl" />
+      <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-400/20 rounded-full blur-3xl" />
 
       <div className="max-w-[900px] mx-auto relative z-10">
 
@@ -80,7 +80,7 @@ export function Contact() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-purple mb-6">
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-terracotta mb-6">
             Ready to start?
           </span>
 
@@ -105,7 +105,7 @@ export function Contact() {
           <div className="relative backdrop-blur-xl bg-white/90 p-10 md:p-12 rounded-3xl border border-vibrant-purple/20 shadow-2xl shadow-vibrant-purple/20">
 
             {/* Tab Buttons */}
-            <div className="flex gap-2 mb-8 p-1 bg-purple-50/50 rounded-2xl">
+            <div className="flex gap-2 mb-8 p-1 bg-amber-50/50 rounded-2xl">
               <button
                 type="button"
                 onClick={() => setActiveTab('contact')}
@@ -198,7 +198,7 @@ export function Contact() {
                   disabled={isSubmitting}
                   whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                  className="w-full sm:w-auto px-10 py-4 bg-vibrant-purple text-white font-semibold rounded-full hover:bg-vibrant-purple-dark hover:shadow-xl hover:shadow-vibrant-purple/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto px-10 py-4 bg-vibrant-terracotta text-white font-semibold rounded-full hover:bg-vibrant-terracotta-light hover:shadow-xl hover:shadow-vibrant-terracotta/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send className="w-4 h-4" />
@@ -208,10 +208,10 @@ export function Contact() {
                   <Mail size={16} strokeWidth={1.5} />
                   <span>or email</span>
                   <a
-                    href="mailto:samiragele010@gmail.com"
-                    className="text-vibrant-purple hover:underline font-medium transition-all"
+                    href="mailto:radixs2402@gmail.com"
+                    className="text-vibrant-terracotta hover:underline font-medium transition-all"
                   >
-                    samiragele010@gmail.com
+                    radixs2402@gmail.com
                   </a>
                 </div>
               </div>

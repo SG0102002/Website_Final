@@ -5,8 +5,8 @@ interface SectionTransitionProps {
 
 export function SectionTransition({ from, to }: SectionTransitionProps) {
   const gradients = {
-    'light-to-dark': 'bg-gradient-to-b from-white via-purple-50 via-slate-200 via-slate-400 to-vibrant-dark',
-    'dark-to-light': 'bg-gradient-to-b from-vibrant-dark via-slate-400 via-slate-200 via-purple-50 to-white',
+    'light-to-dark': 'bg-gradient-to-b from-white via-amber-50/30 via-slate-200 via-slate-400 to-vibrant-dark',
+    'dark-to-light': 'bg-gradient-to-b from-vibrant-dark via-slate-400 via-slate-200 via-amber-50/30 to-white',
     'light-to-light': 'bg-transparent',
     'dark-to-dark': 'bg-transparent'
   }

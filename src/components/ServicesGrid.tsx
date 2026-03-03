@@ -118,7 +118,7 @@ export function ServicesGrid() {
       <div className="bg-vibrant-dark relative overflow-hidden">
         {/* Subtle dot pattern background */}
         <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(124 58 237) 1px, transparent 0)`,
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(180 83 9) 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
 
@@ -132,7 +132,7 @@ export function ServicesGrid() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 space-y-4"
           >
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-purple mb-2">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-terracotta mb-2">
               What We Build
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
@@ -154,24 +154,24 @@ export function ServicesGrid() {
                 transition={{ delay: index * 0.1, duration: 0.6 }}
                 whileHover={{ y: -8 }}
                 onClick={() => setSelectedService(service)}
-                className="group relative p-8 rounded-2xl bg-white/8 border border-white/20 hover:border-vibrant-purple/60 hover:shadow-2xl hover:shadow-vibrant-purple/30 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-sm"
+                className="group relative p-8 rounded-2xl bg-white/8 border border-white/20 hover:border-vibrant-purple-light/80 hover:shadow-2xl hover:shadow-vibrant-purple-light/40 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-sm"
               >
-                {/* Purple glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-vibrant-purple/0 to-vibrant-purple/0 group-hover:from-vibrant-purple/10 group-hover:to-transparent transition-all duration-500 rounded-2xl" />
+                {/* Green glow on hover - brightens like sunlight */}
+                <div className="absolute inset-0 bg-gradient-to-br from-vibrant-purple/0 to-vibrant-purple/0 group-hover:from-vibrant-purple-light/15 group-hover:to-transparent transition-all duration-500 rounded-2xl" />
 
                 <div className="relative space-y-4">
                   {/* Service Number */}
                   <div className="flex items-start justify-between">
-                    <span className="text-5xl font-mono font-bold text-vibrant-purple/60 group-hover:text-vibrant-purple transition-colors">
+                    <span className="text-5xl font-mono font-bold text-vibrant-purple/60 group-hover:text-vibrant-purple-light transition-colors duration-500">
                       {service.id}
                     </span>
-                    <div className="p-2 rounded-full bg-vibrant-purple/30 group-hover:bg-vibrant-purple/40 transition-colors">
-                      <ArrowUpRight className="w-5 h-5 text-vibrant-purple-light" />
+                    <div className="p-2 rounded-full bg-vibrant-terracotta/20 group-hover:bg-vibrant-terracotta-light/60 transition-all duration-500 group-hover:shadow-lg group-hover:shadow-vibrant-terracotta-light/40">
+                      <ArrowUpRight className="w-5 h-5 text-vibrant-terracotta group-hover:text-white transition-colors duration-500" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-vibrant-purple transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-vibrant-purple-light transition-colors duration-500">
                     {service.title}
                   </h3>
 
@@ -182,7 +182,7 @@ export function ServicesGrid() {
 
                   {/* Learn More */}
                   <div className="pt-2">
-                    <span className="text-sm font-semibold text-vibrant-purple-light group-hover:text-white group-hover:underline transition-colors">
+                    <span className="text-sm font-semibold text-vibrant-terracotta group-hover:text-vibrant-terracotta-light group-hover:underline transition-colors duration-500">
                       Learn More →
                     </span>
                   </div>

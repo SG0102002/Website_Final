@@ -111,7 +111,7 @@ export default function BookingConfirmationEmail({
 
           {!isAdmin && (
             <Text style={footerNote}>
-              Need to make changes? Contact us at samiragele010@gmail.com
+              Need to make changes? Contact us at radixs2402@gmail.com
             </Text>
           )}
         </Container>

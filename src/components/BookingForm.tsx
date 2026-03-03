@@ -107,7 +107,7 @@ export function BookingForm() {
     } catch (error) {
       const errorMessage = error instanceof Error
         ? error.message
-        : 'Failed to book consultation. Please try again or contact us at samiragele010@gmail.com'
+        : 'Failed to book consultation. Please try again or contact us at radixs2402@gmail.com'
 
       toast.error(errorMessage)
     }
@@ -188,7 +188,7 @@ export function BookingForm() {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-3">
           <Label htmlFor="booking-date" className="text-vibrant-slate font-medium flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-vibrant-purple" />
+            <Calendar className="w-4 h-4 text-vibrant-terracotta" />
             Consultation Date
           </Label>
           <Input
@@ -210,7 +210,7 @@ export function BookingForm() {
 
         <div className="space-y-3">
           <Label htmlFor="booking-time" className="text-vibrant-slate font-medium flex items-center gap-2">
-            <Clock className="w-4 h-4 text-vibrant-purple" />
+            <Clock className="w-4 h-4 text-vibrant-terracotta" />
             Time Slot
           </Label>
           <select
@@ -259,8 +259,8 @@ export function BookingForm() {
       </div>
 
       {/* Availability Info */}
-      <div className="bg-purple-50 border border-purple-200 rounded-xl p-4">
-        <p className="text-sm text-vibrant-purple font-medium mb-2">📅 Availability:</p>
+      <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
+        <p className="text-sm text-vibrant-terracotta font-medium mb-2">📅 Availability:</p>
         <ul className="text-sm text-vibrant-slate/70 space-y-1">
           <li>• <strong>Weekdays:</strong> 5:00 PM - 10:00 PM (Max 2 bookings/day)</li>
           <li>• <strong>Weekends:</strong> 9:00 AM - 5:00 PM (Max 6 bookings/day)</li>
@@ -274,7 +274,7 @@ export function BookingForm() {
           disabled={isSubmitting || checkingAvailability}
           whileHover={!isSubmitting && !checkingAvailability ? { scale: 1.05, y: -2 } : {}}
           whileTap={!isSubmitting && !checkingAvailability ? { scale: 0.98 } : {}}
-          className="w-full sm:w-auto px-10 py-4 bg-vibrant-purple text-white font-semibold rounded-full hover:bg-vibrant-purple-dark hover:shadow-xl hover:shadow-vibrant-purple/25 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full sm:w-auto px-10 py-4 bg-vibrant-purple text-white font-semibold rounded-full hover:bg-vibrant-purple-light hover:shadow-xl hover:shadow-vibrant-purple-light/40 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {isSubmitting ? 'Booking...' : checkingAvailability ? 'Checking...' : 'Book Consultation'}
           <Send className="w-4 h-4" />

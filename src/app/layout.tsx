@@ -17,8 +17,8 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SU - Build Systems That Work",
-  description: "We design automation and intelligent systems that reduce manual work, improve decision-making, and scale reliably.",
+  title: "Radixs - CAD to BIM Conversion & Digital Construction Solutions",
+  description: "Professional CAD to BIM conversion services for architecture and engineering firms. Transform 2D CAD drawings into intelligent 3D Building Information Models.",
 };
 
 export default function RootLayout({

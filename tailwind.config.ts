@@ -13,15 +13,35 @@ const config: Config = {
   			vibrant: {
   				white: '#FAFAFA',
   				green: {
-  					DEFAULT: '#10B981',
-  					dark: '#059669',
-  					light: '#34D399'
+  					DEFAULT: '#92400e',
+  					dark: '#78350f',
+  					light: '#b45309',
+  					glow: 'rgba(146, 64, 14, 0.2)'
+  				},
+  				terracotta: {
+  					DEFAULT: '#ea580c',
+  					dark: '#c2410c',
+  					light: '#fb923c',
+  					accent: '#f97316',
+  					glow: 'rgba(234, 88, 12, 0.2)'
   				},
   				purple: {
-  					DEFAULT: '#8B5CF6',
-  					dark: '#7C3AED',
-  					light: '#A78BFA',
-  					glow: 'rgba(139, 92, 246, 0.2)'
+  					DEFAULT: '#92400e',
+  					dark: '#78350f',
+  					light: '#b45309',
+  					glow: 'rgba(146, 64, 14, 0.2)'
+  				},
+  				bronze: {
+  					DEFAULT: '#92400e',
+  					dark: '#78350f',
+  					light: '#b45309',
+  					glow: 'rgba(146, 64, 14, 0.2)'
+  				},
+  				amber: {
+  					DEFAULT: '#f59e0b',
+  					dark: '#d97706',
+  					light: '#fbbf24',
+  					gold: '#ca8a04'
   				},
   				slate: '#0F172A',
   				dark: {

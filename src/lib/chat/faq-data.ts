@@ -84,14 +84,14 @@ export const FAQ_DATA: FAQItem[] = [
   {
     id: 'contact-1',
     question: 'What are your working hours?',
-    answer: 'Our consultation hours are:\n\n📅 **Weekdays (Mon-Fri):**\n5:00 PM - 10:00 PM\n\n📅 **Weekends (Sat-Sun):**\n9:00 AM - 5:00 PM\n\n⏰ All times are in Malaysia Time (UTC+8)\n\nFor urgent inquiries, email us at samiragele010@gmail.com',
+    answer: 'Our consultation hours are:\n\n📅 **Weekdays (Mon-Fri):**\n5:00 PM - 10:00 PM\n\n📅 **Weekends (Sat-Sun):**\n9:00 AM - 5:00 PM\n\n⏰ All times are in Malaysia Time (UTC+8)\n\nFor urgent inquiries, email us at radixs2402@gmail.com',
     keywords: ['hours', 'time', 'when', 'available', 'open', 'timing', 'schedule'],
     category: 'Contact'
   },
   {
     id: 'contact-2',
     question: 'How can I contact you?',
-    answer: 'You can reach us through:\n\n📧 **Email:** samiragele010@gmail.com\n💬 **Contact Form:** Fill out the form on our website\n📅 **Book Consultation:** Schedule a call directly\n\nWe typically respond within 24-48 hours during business days.',
+    answer: 'You can reach us through:\n\n📧 **Email:** radixs2402@gmail.com\n💬 **Contact Form:** Fill out the form on our website\n📅 **Book Consultation:** Schedule a call directly\n\nWe typically respond within 24-48 hours during business days.',
     keywords: ['contact', 'reach', 'email', 'phone', 'message', 'get in touch'],
     category: 'Contact'
   },
@@ -159,5 +159,5 @@ How can I help you today?`
 export const FALLBACK_RESPONSES = [
   "Hmm, I'm not sure about that one. 🤔\n\nI can help with:\n• Our services (automation, AI, integration)\n• Pricing and packages\n• Booking consultations\n• Working hours\n\nOr feel free to book a free consultation to discuss your specific question!",
 
-  "Good question! I don't have a specific answer for that yet.\n\nYou can:\n• Ask about our services, pricing, or booking\n• Email us at samiragele010@gmail.com\n• Book a free 30-min consultation\n\nWhat else can I help with?"
+  "Good question! I don't have a specific answer for that yet.\n\nYou can:\n• Ask about our services, pricing, or booking\n• Email us at radixs2402@gmail.com\n• Book a free 30-min consultation\n\nWhat else can I help with?"
 ]

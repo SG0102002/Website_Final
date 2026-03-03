@@ -45,7 +45,7 @@ export function Navigation({ activeSection }: NavigationProps) {
               onClick={() => scrollToSection('home')}
               className="text-xl font-bold text-vibrant-slate tracking-tight"
             >
-              SU
+              Radixs
             </motion.button>
 
             {/* Desktop Navigation */}
@@ -58,7 +58,7 @@ export function Navigation({ activeSection }: NavigationProps) {
                   whileTap={{ scale: 0.95 }}
                   className={`relative px-5 py-2.5 font-medium text-sm rounded-full transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'text-white'
+                      ? 'text-white shadow-lg shadow-vibrant-purple/30'
                       : 'text-vibrant-slate/70 hover:text-vibrant-slate'
                   }`}
                 >
@@ -66,7 +66,7 @@ export function Navigation({ activeSection }: NavigationProps) {
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="navIndicator"
-                      className="absolute inset-0 bg-vibrant-purple rounded-full -z-10"
+                      className="absolute inset-0 bg-vibrant-purple rounded-full -z-10 hover:bg-vibrant-purple-light"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -104,10 +104,10 @@ export function Navigation({ activeSection }: NavigationProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left text-2xl font-bold py-5 px-6 rounded-2xl transition-all ${
+                    className={`block w-full text-left text-2xl font-bold py-5 px-6 rounded-2xl transition-all duration-300 ${
                       activeSection === item.id
-                        ? 'bg-vibrant-purple text-white'
-                        : 'text-vibrant-slate hover:bg-vibrant-slate/10'
+                        ? 'bg-vibrant-purple text-white shadow-lg shadow-vibrant-purple/30'
+                        : 'text-vibrant-slate hover:bg-vibrant-purple-light/10 hover:text-vibrant-purple-light'
                     }`}
                   >
                     {item.label}

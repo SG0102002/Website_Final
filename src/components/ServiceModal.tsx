@@ -146,7 +146,7 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                 <Button
                   onClick={scrollToContact}
                   size="lg"
-                  className="w-full bg-vibrant-purple hover:bg-vibrant-purple-dark text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-vibrant-purple/25 py-6 text-lg"
+                  className="w-full bg-vibrant-purple hover:bg-vibrant-purple-light text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-vibrant-purple-light/40 py-6 text-lg"
                 >
                   Let&apos;s Discuss Your Project
                 </Button>
