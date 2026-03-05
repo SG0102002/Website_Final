@@ -43,9 +43,10 @@ export function Navigation({ activeSection }: NavigationProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection('home')}
-              className="text-xl font-bold text-[#1A1A1A] tracking-tight"
+              className="flex items-center gap-2"
             >
-              Radixs
+              <img src="/logo.png" alt="Radixs Logo" className="h-8 w-auto" />
+              <span className="text-xl font-bold text-[#1A1A1A] tracking-tight">Radixs</span>
             </motion.button>
 
             {/* Desktop Navigation */}
