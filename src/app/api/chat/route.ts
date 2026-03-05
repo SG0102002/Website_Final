@@ -33,7 +33,7 @@ export async function POST(request: Request) {
       ]
 
       const completion = await groq.chat.completions.create({
-        model: 'llama-3.1-70b-versatile', // Fast and smart model
+        model: 'llama-3.3-70b-versatile', // Production model - 280 t/s, 131k context
         messages,
         temperature: 0.7,
         max_tokens: 500,
