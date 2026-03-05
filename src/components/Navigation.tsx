@@ -45,8 +45,8 @@ export function Navigation({ activeSection }: NavigationProps) {
               onClick={() => scrollToSection('home')}
               className="flex items-center gap-3"
             >
-              <img src="/logo.png" alt="Radixs Logo" className="h-12 w-auto" />
-              <span className="text-xl font-bold text-[#1A1A1A] tracking-tight">Radixs</span>
+              <img src="/logo.png" alt="Radixs Logo" className="h-14 w-auto" style={{ maxWidth: '60px' }} />
+              <span className="text-2xl font-bold text-[#1A1A1A] tracking-tight">Radixs</span>
             </motion.button>
 
             {/* Desktop Navigation */}
