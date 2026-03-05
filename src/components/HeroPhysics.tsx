@@ -14,19 +14,10 @@ export function HeroPhysics() {
   }
 
   return (
-    <div className="min-h-screen flex items-center relative overflow-hidden bg-gradient-to-b from-white via-white to-amber-50/30">
-      {/* Interactive cursor-following background gradient */}
+    <div className="min-h-screen flex items-center relative overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+      {/* Animated green background with cursor interaction */}
       <InteractiveBackground />
-
-      {/* Particle Network - Neural network style */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 0.3, duration: 1.5 }}
-        className="absolute inset-0"
-      >
-        <ParticleNetwork />
-      </motion.div>
+      <ParticleNetwork />
 
       {/* Text Content - Overlaid on top */}
       <div className="relative z-10 max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 py-20 w-full">
@@ -43,19 +34,19 @@ export function HeroPhysics() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.2, duration: 0.8 }}
-                className="text-5xl md:text-6xl lg:text-8xl font-bold text-vibrant-slate leading-tight drop-shadow-lg"
-                style={{ textShadow: '0 2px 20px rgba(255,255,255,0.8)' }}
+                className="text-5xl md:text-6xl lg:text-8xl font-bold leading-tight"
+                style={{ color: '#1A1A1A' }}
               >
                 Build Systems That{' '}
-                <span className="text-vibrant-purple">Work</span>
+                <span style={{ color: '#2C5F4E' }}>Work</span>
               </motion.h1>
 
               <motion.p
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.4, duration: 0.8 }}
-                className="text-lg md:text-xl lg:text-2xl text-vibrant-slate/80 leading-relaxed max-w-3xl mx-auto backdrop-blur-sm bg-white/20 rounded-2xl px-6 py-4"
-                style={{ textShadow: '0 1px 10px rgba(255,255,255,0.9)' }}
+                className="text-lg md:text-xl lg:text-2xl leading-relaxed max-w-3xl mx-auto"
+                style={{ color: '#666666' }}
               >
                 We design automation and intelligent systems that reduce manual work,
                 improve decision-making, and scale reliably.
@@ -71,24 +62,33 @@ export function HeroPhysics() {
               <Button
                 onClick={scrollToContact}
                 size="lg"
-                className="bg-vibrant-terracotta hover:bg-vibrant-terracotta-light text-white font-semibold px-10 py-7 text-xl rounded-full transition-all duration-300 hover:scale-105 hover:shadow-2xl hover:shadow-vibrant-terracotta/50"
+                className="text-white font-semibold px-10 py-7 text-xl transition-all duration-200 shadow-md hover:shadow-lg"
+                style={{ backgroundColor: '#2C5F4E' }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = '#234A3D'
+                  e.currentTarget.style.transform = 'translateY(-2px)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = '#2C5F4E'
+                  e.currentTarget.style.transform = 'translateY(0)'
+                }}
               >
                 Start a Project
               </Button>
 
-              <div className="flex items-center gap-4 backdrop-blur-sm bg-white/30 rounded-full px-6 py-3">
+              <div className="flex items-center gap-4 px-6 py-3" style={{ backgroundColor: '#F5F5F5', borderColor: '#E5E5E5', borderWidth: '1px' }}>
                 <div className="flex -space-x-2">
-                  <div className="w-10 h-10 rounded-full bg-vibrant-terracotta/20 border-2 border-white flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-xs font-mono text-vibrant-terracotta-dark font-bold">AI</span>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2C5F4E', border: '2px solid #FFFFFF' }}>
+                    <span className="text-xs font-mono font-bold text-white">AI</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-vibrant-terracotta/20 border-2 border-white flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-[9px] font-mono text-vibrant-terracotta-dark font-bold">AUTO</span>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2C5F4E', border: '2px solid #FFFFFF' }}>
+                    <span className="text-[9px] font-mono font-bold text-white">AUTO</span>
                   </div>
-                  <div className="w-10 h-10 rounded-full bg-vibrant-terracotta/20 border-2 border-white flex items-center justify-center backdrop-blur-sm">
-                    <span className="text-xs font-mono text-vibrant-terracotta-dark font-bold">WEB</span>
+                  <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{ backgroundColor: '#2C5F4E', border: '2px solid #FFFFFF' }}>
+                    <span className="text-xs font-mono font-bold text-white">WEB</span>
                   </div>
                 </div>
-                <p className="text-sm text-vibrant-slate font-mono font-semibold">
+                <p className="text-sm font-mono font-semibold" style={{ color: '#1A1A1A' }}>
                   Full-stack
                 </p>
               </div>
@@ -102,13 +102,14 @@ export function HeroPhysics() {
               className="pt-16"
             >
               <div className="flex flex-col items-center gap-2">
-                <span className="text-xs uppercase tracking-wider text-vibrant-slate/50 font-mono">Scroll to explore</span>
+                <span className="text-xs uppercase tracking-wider font-mono" style={{ color: '#999999' }}>Scroll to explore</span>
                 <motion.div
                   animate={{ y: [0, 8, 0] }}
                   transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                  className="w-6 h-10 rounded-full border-2 border-vibrant-slate/30 flex items-start justify-center p-2"
+                  className="w-6 h-10 rounded-full flex items-start justify-center p-2"
+                  style={{ borderColor: '#E5E5E5', borderWidth: '2px' }}
                 >
-                  <div className="w-1.5 h-1.5 bg-vibrant-terracotta rounded-full" />
+                  <div className="w-1.5 h-1.5 rounded-full" style={{ backgroundColor: '#2C5F4E' }} />
                 </motion.div>
               </div>
             </motion.div>

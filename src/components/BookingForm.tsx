@@ -132,14 +132,14 @@ export function BookingForm() {
       {/* Name & Email Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-3">
-          <Label htmlFor="booking-name" className="text-vibrant-slate font-medium">
+          <Label htmlFor="booking-name" className="text-[#1A1A1A] font-medium">
             Name
           </Label>
           <Input
             type="text"
             id="booking-name"
             {...register('name')}
-            className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
+            className="px-5 py-6 bg-white border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-xl focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all"
             placeholder="Your name"
             aria-invalid={errors.name ? 'true' : 'false'}
           />
@@ -149,14 +149,14 @@ export function BookingForm() {
         </div>
 
         <div className="space-y-3">
-          <Label htmlFor="booking-email" className="text-vibrant-slate font-medium">
+          <Label htmlFor="booking-email" className="text-[#1A1A1A] font-medium">
             Email
           </Label>
           <Input
             type="email"
             id="booking-email"
             {...register('email')}
-            className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
+            className="px-5 py-6 bg-white border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-xl focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all"
             placeholder="your@email.com"
             aria-invalid={errors.email ? 'true' : 'false'}
           />
@@ -168,14 +168,14 @@ export function BookingForm() {
 
       {/* Phone */}
       <div className="space-y-3">
-        <Label htmlFor="booking-phone" className="text-vibrant-slate font-medium">
+        <Label htmlFor="booking-phone" className="text-[#1A1A1A] font-medium">
           Phone Number
         </Label>
         <Input
           type="tel"
           id="booking-phone"
           {...register('phone')}
-          className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
+          className="px-5 py-6 bg-white border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-xl focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all"
           placeholder="+60 12-345 6789"
           aria-invalid={errors.phone ? 'true' : 'false'}
         />
@@ -187,8 +187,8 @@ export function BookingForm() {
       {/* Date & Time Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-3">
-          <Label htmlFor="booking-date" className="text-vibrant-slate font-medium flex items-center gap-2">
-            <Calendar className="w-4 h-4 text-vibrant-terracotta" />
+          <Label htmlFor="booking-date" className="text-[#1A1A1A] font-medium flex items-center gap-2">
+            <Calendar className="w-4 h-4 text-[#2C5F4E]" />
             Consultation Date
           </Label>
           <Input
@@ -197,27 +197,27 @@ export function BookingForm() {
             {...register('booking_date')}
             min={getMinDate()}
             max={getMaxDate()}
-            className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
+            className="px-5 py-6 bg-white border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-xl focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all"
             aria-invalid={errors.booking_date ? 'true' : 'false'}
           />
           {errors.booking_date && (
             <p className="text-sm text-red-500 mt-1">{errors.booking_date.message}</p>
           )}
-          <p className="text-xs text-vibrant-slate/60">
+          <p className="text-xs text-[#1A1A1A]/60">
             Minimum 48 hours advance booking
           </p>
         </div>
 
         <div className="space-y-3">
-          <Label htmlFor="booking-time" className="text-vibrant-slate font-medium flex items-center gap-2">
-            <Clock className="w-4 h-4 text-vibrant-terracotta" />
+          <Label htmlFor="booking-time" className="text-[#1A1A1A] font-medium flex items-center gap-2">
+            <Clock className="w-4 h-4 text-[#2C5F4E]" />
             Time Slot
           </Label>
           <select
             id="booking-time"
             {...register('booking_time')}
             disabled={!selectedDate || checkingAvailability}
-            className="w-full px-5 py-6 bg-white border border-vibrant-slate/20 text-vibrant-slate rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full px-5 py-6 bg-white border border-[#1A1A1A]/20 text-[#1A1A1A] rounded-xl focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all disabled:opacity-50 disabled:cursor-not-allowed"
             aria-invalid={errors.booking_time ? 'true' : 'false'}
           >
             <option value="">
@@ -233,7 +233,7 @@ export function BookingForm() {
             <p className="text-sm text-red-500 mt-1">{errors.booking_time.message}</p>
           )}
           {selectedDate && (
-            <p className="text-xs text-vibrant-slate/60">
+            <p className="text-xs text-[#1A1A1A]/60">
               30-minute consultation
             </p>
           )}
@@ -242,14 +242,14 @@ export function BookingForm() {
 
       {/* Topic */}
       <div className="space-y-3">
-        <Label htmlFor="booking-topic" className="text-vibrant-slate font-medium">
+        <Label htmlFor="booking-topic" className="text-[#1A1A1A] font-medium">
           What would you like to discuss?
         </Label>
         <Textarea
           id="booking-topic"
           {...register('topic')}
           rows={4}
-          className="px-5 py-4 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple resize-none transition-all"
+          className="px-5 py-4 bg-white border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-xl focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] resize-none transition-all"
           placeholder="Brief description of your consultation needs..."
           aria-invalid={errors.topic ? 'true' : 'false'}
         />
@@ -259,11 +259,11 @@ export function BookingForm() {
       </div>
 
       {/* Availability Info */}
-      <div className="bg-orange-50 border border-orange-200 rounded-xl p-4">
-        <p className="text-sm text-vibrant-terracotta font-medium mb-2">📅 Availability:</p>
-        <ul className="text-sm text-vibrant-slate/70 space-y-1">
-          <li>• <strong>Weekdays:</strong> 5:00 PM - 10:00 PM (Max 2 bookings/day)</li>
-          <li>• <strong>Weekends:</strong> 9:00 AM - 5:00 PM (Max 6 bookings/day)</li>
+      <div className="rounded-xl p-4" style={{ backgroundColor: 'rgba(44, 95, 78, 0.05)', border: '1px solid rgba(44, 95, 78, 0.2)' }}>
+        <p className="text-sm font-medium mb-2" style={{ color: '#2C5F4E' }}>📅 Availability:</p>
+        <ul className="text-sm space-y-1" style={{ color: '#666666' }}>
+          <li>• <strong>Weekdays:</strong> 5:00 PM - 10:00 PM</li>
+          <li>• <strong>Weekends:</strong> 9:00 AM - 5:00 PM</li>
         </ul>
       </div>
 
@@ -274,7 +274,18 @@ export function BookingForm() {
           disabled={isSubmitting || checkingAvailability}
           whileHover={!isSubmitting && !checkingAvailability ? { scale: 1.05, y: -2 } : {}}
           whileTap={!isSubmitting && !checkingAvailability ? { scale: 0.98 } : {}}
-          className="w-full sm:w-auto px-10 py-4 bg-vibrant-purple text-white font-semibold rounded-full hover:bg-vibrant-purple-light hover:shadow-xl hover:shadow-vibrant-purple-light/40 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="w-full sm:w-auto px-10 py-4 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+          style={{ backgroundColor: '#2C5F4E' }}
+          onMouseEnter={(e) => {
+            if (!isSubmitting && !checkingAvailability) {
+              e.currentTarget.style.backgroundColor = '#234A3D'
+            }
+          }}
+          onMouseLeave={(e) => {
+            if (!isSubmitting && !checkingAvailability) {
+              e.currentTarget.style.backgroundColor = '#2C5F4E'
+            }
+          }}
         >
           {isSubmitting ? 'Booking...' : checkingAvailability ? 'Checking...' : 'Book Consultation'}
           <Send className="w-4 h-4" />

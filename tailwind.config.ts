@@ -10,43 +10,52 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			// Clean minimal color scheme - White and Green only
+  			'radixs-bg': '#FFFFFF',
+  			'radixs-surface': '#FFFFFF',
+  			'radixs-text': '#1A1A1A',
+  			'radixs-text-muted': '#666666',
+  			'radixs-border': '#E5E5E5',
+  			'radixs-green': '#2C5F4E',
+  			'radixs-green-hover': '#234A3D',
+  			// All colors now use GREEN for consistency
   			vibrant: {
-  				white: '#FAFAFA',
+  				white: '#FFFFFF',
   				green: {
-  					DEFAULT: '#92400e',
-  					dark: '#78350f',
-  					light: '#b45309',
-  					glow: 'rgba(146, 64, 14, 0.2)'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					glow: 'rgba(44, 95, 78, 0.2)'
   				},
   				terracotta: {
-  					DEFAULT: '#ea580c',
-  					dark: '#c2410c',
-  					light: '#fb923c',
-  					accent: '#f97316',
-  					glow: 'rgba(234, 88, 12, 0.2)'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					accent: '#2C5F4E',
+  					glow: 'rgba(44, 95, 78, 0.2)'
   				},
   				purple: {
-  					DEFAULT: '#92400e',
-  					dark: '#78350f',
-  					light: '#b45309',
-  					glow: 'rgba(146, 64, 14, 0.2)'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					glow: 'rgba(44, 95, 78, 0.2)'
   				},
   				bronze: {
-  					DEFAULT: '#92400e',
-  					dark: '#78350f',
-  					light: '#b45309',
-  					glow: 'rgba(146, 64, 14, 0.2)'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					glow: 'rgba(44, 95, 78, 0.2)'
   				},
   				amber: {
-  					DEFAULT: '#f59e0b',
-  					dark: '#d97706',
-  					light: '#fbbf24',
-  					gold: '#ca8a04'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					gold: '#2C5F4E'
   				},
-  				slate: '#0F172A',
+  				slate: '#1A1A1A',
   				dark: {
-  					DEFAULT: '#1E293B',
-  					alt: '#0F172A'
+  					DEFAULT: '#1A1A1A',
+  					alt: '#1A1A1A'
   				}
   			},
   			background: 'hsl(var(--background))',

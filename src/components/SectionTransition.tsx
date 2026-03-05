@@ -4,14 +4,16 @@ interface SectionTransitionProps {
 }
 
 export function SectionTransition({ from, to }: SectionTransitionProps) {
-  const gradients = {
-    'light-to-dark': 'bg-gradient-to-b from-white via-amber-50/30 via-slate-200 via-slate-400 to-vibrant-dark',
-    'dark-to-light': 'bg-gradient-to-b from-vibrant-dark via-slate-400 via-slate-200 via-amber-50/30 to-white',
-    'light-to-light': 'bg-transparent',
-    'dark-to-dark': 'bg-transparent'
+  // Minimal transitions - just white and green
+  const getGradient = () => {
+    if (from === 'light' && to === 'dark') {
+      return { background: 'linear-gradient(to bottom, #FFFFFF, #2C5F4E)' }
+    }
+    if (from === 'dark' && to === 'light') {
+      return { background: 'linear-gradient(to bottom, #2C5F4E, #FFFFFF)' }
+    }
+    return { background: 'transparent' }
   }
 
-  const key = `${from}-to-${to}` as keyof typeof gradients
-
-  return <div className={`h-48 md:h-64 ${gradients[key]}`} />
+  return <div className="h-48 md:h-64" style={getGradient()} />
 }

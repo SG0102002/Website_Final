@@ -59,16 +59,8 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-32 px-8 md:px-12 lg:px-16 bg-gradient-to-br from-amber-50/30 via-orange-50/20 to-white overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.06]" style={{
-        backgroundImage: `linear-gradient(to right, rgb(146 64 14) 1px, transparent 1px), linear-gradient(to bottom, rgb(146 64 14) 1px, transparent 1px)`,
-        backgroundSize: '60px 60px'
-      }} />
-
-      {/* Warm bronze accent gradient blobs */}
-      <div className="absolute top-40 left-10 w-96 h-96 bg-amber-900/15 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-orange-400/20 rounded-full blur-3xl" />
+    <section id="contact" className="relative py-32 px-8 md:px-12 lg:px-16 overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+      {/* Clean white background - no patterns, no gradients */}
 
       <div className="max-w-[900px] mx-auto relative z-10">
 
@@ -80,17 +72,17 @@ export function Contact() {
           transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
           className="text-center mb-16"
         >
-          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-terracotta mb-6">
+          <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase mb-6" style={{ color: '#2C5F4E' }}>
             Ready to start?
           </span>
 
-          <h2 className="text-4xl md:text-5xl lg:text-6xl text-vibrant-slate leading-tight mb-6 font-bold tracking-tight">
+          <h2 className="text-4xl md:text-5xl lg:text-6xl leading-tight mb-6 font-bold tracking-tight" style={{ color: '#1A1A1A' }}>
             Let&apos;s Design Something
             <br />
             That Works
           </h2>
 
-          <p className="text-lg text-vibrant-slate/70 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-lg max-w-2xl mx-auto leading-relaxed" style={{ color: '#666666' }}>
             If you&apos;re exploring automation or AI and want a thoughtful, well-designed system — not hype — let&apos;s talk.
           </p>
         </motion.div>
@@ -102,18 +94,25 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative backdrop-blur-xl bg-white/90 p-10 md:p-12 rounded-3xl border border-vibrant-purple/20 shadow-2xl shadow-vibrant-purple/20">
+          <div className="relative backdrop-blur-xl bg-white/90 p-10 md:p-12 rounded-3xl shadow-2xl" style={{ border: '1px solid #E5E5E5' }}>
 
             {/* Tab Buttons */}
-            <div className="flex gap-2 mb-8 p-1 bg-amber-50/50 rounded-2xl">
+            <div className="flex gap-2 mb-8 p-1 rounded-2xl" style={{ backgroundColor: '#F5F5F5' }}>
               <button
                 type="button"
                 onClick={() => setActiveTab('contact')}
-                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
-                  activeTab === 'contact'
-                    ? 'bg-vibrant-purple text-white shadow-lg shadow-vibrant-purple/30'
-                    : 'text-vibrant-slate/60 hover:text-vibrant-slate hover:bg-white/50'
-                }`}
+                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2`}
+                style={activeTab === 'contact' ? { backgroundColor: '#2C5F4E', color: '#FFFFFF' } : { color: '#666666' }}
+                onMouseEnter={(e) => {
+                  if (activeTab !== 'contact') {
+                    e.currentTarget.style.backgroundColor = '#E5E5E5'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeTab !== 'contact') {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                  }
+                }}
               >
                 <Mail className="w-4 h-4" />
                 Contact Us
@@ -121,11 +120,18 @@ export function Contact() {
               <button
                 type="button"
                 onClick={() => setActiveTab('booking')}
-                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2 ${
-                  activeTab === 'booking'
-                    ? 'bg-vibrant-purple text-white shadow-lg shadow-vibrant-purple/30'
-                    : 'text-vibrant-slate/60 hover:text-vibrant-slate hover:bg-white/50'
-                }`}
+                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2`}
+                style={activeTab === 'booking' ? { backgroundColor: '#2C5F4E', color: '#FFFFFF' } : { color: '#666666' }}
+                onMouseEnter={(e) => {
+                  if (activeTab !== 'booking') {
+                    e.currentTarget.style.backgroundColor = '#E5E5E5'
+                  }
+                }}
+                onMouseLeave={(e) => {
+                  if (activeTab !== 'booking') {
+                    e.currentTarget.style.backgroundColor = 'transparent'
+                  }
+                }}
               >
                 <Calendar className="w-4 h-4" />
                 Book Consultation
@@ -139,16 +145,25 @@ export function Contact() {
               {/* Name & Email Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div className="space-y-3">
-                  <Label htmlFor="name" className="text-vibrant-slate font-medium">
+                  <Label htmlFor="name" className="font-medium" style={{ color: '#1A1A1A' }}>
                     Name
                   </Label>
                   <Input
                     type="text"
                     id="name"
                     {...register('name')}
-                    className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
+                    className="px-5 py-6 bg-white rounded-xl focus:ring-2 transition-all"
+                    style={{ borderColor: '#E5E5E5', color: '#1A1A1A' }}
                     placeholder="Your name"
                     aria-invalid={errors.name ? 'true' : 'false'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#2C5F4E'
+                      e.currentTarget.style.boxShadow = '0 0 0 2px rgba(44, 95, 78, 0.1)'
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#E5E5E5'
+                      e.currentTarget.style.boxShadow = 'none'
+                    }}
                   />
                   {errors.name && (
                     <p className="text-sm text-red-500 mt-1">{errors.name.message}</p>
@@ -156,16 +171,25 @@ export function Contact() {
                 </div>
 
                 <div className="space-y-3">
-                  <Label htmlFor="email" className="text-vibrant-slate font-medium">
+                  <Label htmlFor="email" className="font-medium" style={{ color: '#1A1A1A' }}>
                     Email
                   </Label>
                   <Input
                     type="email"
                     id="email"
                     {...register('email')}
-                    className="px-5 py-6 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple transition-all"
+                    className="px-5 py-6 bg-white rounded-xl focus:ring-2 transition-all"
+                    style={{ borderColor: '#E5E5E5', color: '#1A1A1A' }}
                     placeholder="your@email.com"
                     aria-invalid={errors.email ? 'true' : 'false'}
+                    onFocus={(e) => {
+                      e.currentTarget.style.borderColor = '#2C5F4E'
+                      e.currentTarget.style.boxShadow = '0 0 0 2px rgba(44, 95, 78, 0.1)'
+                    }}
+                    onBlur={(e) => {
+                      e.currentTarget.style.borderColor = '#E5E5E5'
+                      e.currentTarget.style.boxShadow = 'none'
+                    }}
                   />
                   {errors.email && (
                     <p className="text-sm text-red-500 mt-1">{errors.email.message}</p>
@@ -175,16 +199,25 @@ export function Contact() {
 
               {/* Message */}
               <div className="space-y-3">
-                <Label htmlFor="message" className="text-vibrant-slate font-medium">
+                <Label htmlFor="message" className="font-medium" style={{ color: '#1A1A1A' }}>
                   Tell us about your project
                 </Label>
                 <Textarea
                   id="message"
                   {...register('message')}
                   rows={5}
-                  className="px-5 py-4 bg-white border-vibrant-slate/20 text-vibrant-slate placeholder-vibrant-slate/40 rounded-xl focus:ring-2 focus:ring-vibrant-purple focus:border-vibrant-purple resize-none transition-all"
+                  className="px-5 py-4 bg-white rounded-xl focus:ring-2 resize-none transition-all"
+                  style={{ borderColor: '#E5E5E5', color: '#1A1A1A' }}
                   placeholder="Share your vision with us..."
                   aria-invalid={errors.message ? 'true' : 'false'}
+                  onFocus={(e) => {
+                    e.currentTarget.style.borderColor = '#2C5F4E'
+                    e.currentTarget.style.boxShadow = '0 0 0 2px rgba(44, 95, 78, 0.1)'
+                  }}
+                  onBlur={(e) => {
+                    e.currentTarget.style.borderColor = '#E5E5E5'
+                    e.currentTarget.style.boxShadow = 'none'
+                  }}
                 />
                 {errors.message && (
                   <p className="text-sm text-red-500 mt-1">{errors.message.message}</p>
@@ -198,18 +231,30 @@ export function Contact() {
                   disabled={isSubmitting}
                   whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                  className="w-full sm:w-auto px-10 py-4 bg-vibrant-terracotta text-white font-semibold rounded-full hover:bg-vibrant-terracotta-light hover:shadow-xl hover:shadow-vibrant-terracotta/50 transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto px-10 py-4 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  style={{ backgroundColor: '#2C5F4E' }}
+                  onMouseEnter={(e) => {
+                    if (!isSubmitting) {
+                      e.currentTarget.style.backgroundColor = '#234A3D'
+                    }
+                  }}
+                  onMouseLeave={(e) => {
+                    if (!isSubmitting) {
+                      e.currentTarget.style.backgroundColor = '#2C5F4E'
+                    }
+                  }}
                 >
                   {isSubmitting ? 'Sending...' : 'Send Message'}
                   <Send className="w-4 h-4" />
                 </motion.button>
 
-                <div className="flex items-center gap-2 text-vibrant-slate/60 text-sm">
+                <div className="flex items-center gap-2 text-sm" style={{ color: '#666666' }}>
                   <Mail size={16} strokeWidth={1.5} />
                   <span>or email</span>
                   <a
                     href="mailto:radixs2402@gmail.com"
-                    className="text-vibrant-terracotta hover:underline font-medium transition-all"
+                    className="hover:underline font-medium transition-all"
+                    style={{ color: '#2C5F4E' }}
                   >
                     radixs2402@gmail.com
                   </a>

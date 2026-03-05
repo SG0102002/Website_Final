@@ -126,10 +126,10 @@ export function ParticleNetwork() {
         )
         const highlightFactor = Math.max(0, 1 - distanceFromMouse / 200)
 
-        // Color shifts based on proximity to cursor (purple gradient)
-        const r = Math.floor(139 + highlightFactor * 28) // 139 -> 167 (vibrant to light purple)
-        const g = Math.floor(92 + highlightFactor * 47)  // 92 -> 139
-        const b = Math.floor(246 + highlightFactor * 4)  // 246 -> 250
+        // Color shifts based on proximity to cursor (green gradient)
+        const r = Math.floor(44 + highlightFactor * 20)  // 44 -> 64 (deep to lighter green)
+        const g = Math.floor(95 + highlightFactor * 40)  // 95 -> 135
+        const b = Math.floor(78 + highlightFactor * 30)  // 78 -> 108
 
         // Add subtle glow effect
         ctx.shadowBlur = 4 + highlightFactor * 8 // Softer glow

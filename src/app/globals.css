@@ -70,6 +70,8 @@
   }
 
   body {
-    @apply bg-white text-vibrant-slate antialiased;
+    @apply antialiased;
+    background-color: #FFFFFF;
+    color: #1A1A1A;
   }
 }

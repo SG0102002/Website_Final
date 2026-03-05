@@ -56,16 +56,14 @@ const processSteps = [
 
 export function HowWeWork() {
   return (
-    <section id="how-we-work" className="relative py-32 px-8 md:px-12 lg:px-16 bg-gradient-to-br from-amber-50/30 via-white to-slate-50 overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-[0.08]" style={{
-        backgroundImage: `radial-gradient(circle at 1px 1px, rgb(146 64 14) 1px, transparent 0)`,
+    <section id="how-we-work" className="relative py-32 px-8 md:px-12 lg:px-16 overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+      {/* Background Pattern - very subtle */}
+      <div className="absolute inset-0 opacity-[0.01]" style={{
+        backgroundImage: `radial-gradient(circle at 1px 1px, #B8956A 1px, transparent 0)`,
         backgroundSize: '40px 40px'
       }} />
 
-      {/* Warm bronze accent gradient blobs */}
-      <div className="absolute top-20 right-20 w-96 h-96 bg-amber-900/15 rounded-full blur-3xl" />
-      <div className="absolute bottom-40 left-20 w-80 h-80 bg-orange-400/20 rounded-full blur-3xl" />
+      {/* No gradient blobs - keep it minimal */}
 
       <div className="max-w-[1400px] mx-auto relative z-10">
 
@@ -78,10 +76,10 @@ export function HowWeWork() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 space-y-4"
           >
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-terracotta mb-2">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase mb-2" style={{ color: '#2C5F4E' }}>
               Common Challenges
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-vibrant-slate">
+            <h2 className="text-4xl md:text-5xl font-bold" style={{ color: '#1A1A1A' }}>
               Problems We Help Businesses Address
             </h2>
           </motion.div>
@@ -97,20 +95,28 @@ export function HowWeWork() {
                   viewport={{ once: true }}
                   transition={{ delay: index * 0.1, duration: 0.6 }}
                   whileHover={{ y: -4 }}
-                  className="group relative p-8 rounded-2xl bg-white/80 backdrop-blur-sm border border-vibrant-purple/20 hover:border-vibrant-purple-light/60 shadow-xl shadow-amber-900/10 hover:shadow-2xl hover:shadow-vibrant-purple-light/30 transition-all duration-500"
+                  className="group relative p-8 shadow-sm hover:shadow-md transition-all duration-300"
+                  style={{ backgroundColor: '#FFFFFF', border: `1px solid #E5E5E5` }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.borderColor = '#B8956A'
+                    e.currentTarget.style.transform = 'translateY(-4px)'
+                    e.currentTarget.style.boxShadow = '0 4px 20px rgba(184, 149, 106, 0.15)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.borderColor = '#E5E5E5'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                    e.currentTarget.style.boxShadow = ''
+                  }}
                 >
-                  {/* Gradient overlay on hover - brightens like sunlight */}
-                  <div className="absolute inset-0 bg-gradient-to-br from-vibrant-purple/0 to-vibrant-purple/0 group-hover:from-vibrant-purple-light/8 group-hover:to-transparent rounded-2xl transition-all duration-500" />
-
                   <div className="relative flex items-start gap-4">
-                    <div className="p-4 rounded-xl bg-gradient-to-br from-vibrant-purple/10 to-vibrant-purple/5 group-hover:from-vibrant-purple-light/25 group-hover:to-vibrant-purple-light/15 transition-all duration-500 shadow-sm group-hover:shadow-md group-hover:shadow-vibrant-purple-light/20">
-                      <Icon className="w-6 h-6 text-vibrant-purple group-hover:text-vibrant-purple-light transition-colors duration-500" />
+                    <div className="p-4 transition-all duration-300 group-hover:bg-[#B8956A]/10" style={{ backgroundColor: 'rgba(44, 95, 78, 0.05)' }}>
+                      <Icon className="w-6 h-6 transition-colors duration-300 group-hover:text-[#B8956A]" style={{ color: '#2C5F4E' }} />
                     </div>
                     <div className="flex-1 space-y-3">
-                      <h3 className="text-xl font-bold text-vibrant-slate group-hover:text-vibrant-purple-light transition-colors duration-500">
+                      <h3 className="text-xl font-bold transition-colors duration-300 text-[#1A1A1A] group-hover:text-[#B8956A]">
                         {challenge.title}
                       </h3>
-                      <p className="text-vibrant-slate/70 leading-relaxed">
+                      <p className="leading-relaxed" style={{ color: '#666666' }}>
                         {challenge.description}
                       </p>
                     </div>
@@ -130,20 +136,20 @@ export function HowWeWork() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 space-y-4"
           >
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-terracotta mb-2">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase mb-2" style={{ color: '#2C5F4E' }}>
               How We Work
             </span>
-            <h2 className="text-4xl md:text-5xl font-bold text-vibrant-slate">
+            <h2 className="text-4xl md:text-5xl font-bold" style={{ color: '#1A1A1A' }}>
               A Structured, Thoughtful Approach
             </h2>
-            <p className="text-lg md:text-xl text-vibrant-slate/70 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl max-w-3xl mx-auto" style={{ color: '#666666' }}>
               We follow a proven process that balances speed with care, ensuring solutions that work and last.
             </p>
           </motion.div>
 
           <div className="relative max-w-5xl mx-auto">
             {/* Connecting line */}
-            <div className="absolute left-8 top-0 bottom-0 w-px bg-gradient-to-b from-transparent via-vibrant-purple/30 to-transparent hidden md:block" />
+            <div className="absolute left-8 top-0 bottom-0 w-px hidden md:block" style={{ background: `linear-gradient(to bottom, transparent, #E5E5E5, transparent)` }} />
 
             <div className="space-y-6">
               {processSteps.map((step, index) => (
@@ -158,7 +164,15 @@ export function HowWeWork() {
                 >
                   {/* Number badge */}
                   <div className="relative z-10 flex-shrink-0">
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-vibrant-purple to-vibrant-purple-dark group-hover:from-vibrant-purple-light group-hover:to-vibrant-purple flex items-center justify-center shadow-lg shadow-vibrant-purple/30 group-hover:shadow-xl group-hover:shadow-vibrant-purple-light/50 transition-all duration-500 group-hover:scale-110">
+                    <div className="w-16 h-16 flex items-center justify-center shadow-sm transition-all duration-300" style={{ backgroundColor: '#2C5F4E' }}
+                      onMouseEnter={(e) => {
+                        e.currentTarget.style.backgroundColor = '#B8956A'
+                        e.currentTarget.style.boxShadow = '0 4px 15px rgba(184, 149, 106, 0.3)'
+                      }}
+                      onMouseLeave={(e) => {
+                        e.currentTarget.style.backgroundColor = '#2C5F4E'
+                        e.currentTarget.style.boxShadow = ''
+                      }}>
                       <span className="text-2xl font-mono font-bold text-white">
                         {step.number}
                       </span>
@@ -166,11 +180,21 @@ export function HowWeWork() {
                   </div>
 
                   {/* Content Card */}
-                  <div className="flex-1 p-6 rounded-2xl bg-white/80 border border-vibrant-purple/20 group-hover:border-vibrant-purple-light/60 shadow-lg shadow-amber-900/10 group-hover:shadow-xl group-hover:shadow-vibrant-purple-light/30 transition-all duration-500 backdrop-blur-sm">
-                    <h3 className="text-2xl font-bold text-vibrant-slate mb-3 group-hover:text-vibrant-purple-light transition-colors duration-500">
+                  <div className="flex-1 p-6 shadow-sm group-hover:shadow-md transition-all duration-300" style={{ backgroundColor: '#FFFFFF', border: `1px solid #E5E5E5` }}
+                    onMouseEnter={(e) => {
+                      e.currentTarget.style.borderColor = '#B8956A'
+                      e.currentTarget.style.transform = 'translateY(-2px)'
+                      e.currentTarget.style.boxShadow = '0 4px 20px rgba(184, 149, 106, 0.15)'
+                    }}
+                    onMouseLeave={(e) => {
+                      e.currentTarget.style.borderColor = '#E5E5E5'
+                      e.currentTarget.style.transform = 'translateY(0)'
+                      e.currentTarget.style.boxShadow = ''
+                    }}>
+                    <h3 className="text-2xl font-bold mb-3 transition-colors duration-300 text-[#1A1A1A] group-hover:text-[#B8956A]">
                       {step.title}
                     </h3>
-                    <p className="text-vibrant-slate/70 leading-relaxed text-lg">
+                    <p className="leading-relaxed text-lg" style={{ color: '#666666' }}>
                       {step.description}
                     </p>
                   </div>

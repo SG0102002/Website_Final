@@ -12,7 +12,7 @@ export default function Home() {
   const activeSection = useScrollTracking(['home', 'services', 'how-we-work', 'contact'])
 
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen" style={{ backgroundColor: '#FFFFFF' }}>
       <Navigation activeSection={activeSection} />
 
       <section id="home">
