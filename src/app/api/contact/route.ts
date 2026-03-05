@@ -69,7 +69,7 @@ export async function POST(request: Request): Promise<NextResponse<ApiResponse>>
       return NextResponse.json(
         {
           success: false,
-          error: 'Failed to process your submission. Please try again or contact us directly at samiragele010@gmail.com'
+          error: 'Failed to process your submission. Please try again or contact us directly at radixs2402@gmail.com'
         },
         { status: 500 }
       )
@@ -98,7 +98,7 @@ export async function POST(request: Request): Promise<NextResponse<ApiResponse>>
     return NextResponse.json(
       {
         success: false,
-        error: 'An unexpected error occurred. Please try again or contact us at samiragele010@gmail.com'
+        error: 'An unexpected error occurred. Please try again or contact us at radixs2402@gmail.com'
       },
       { status: 500 }
     )

@@ -7,4 +7,5 @@ export interface Service {
   benefits: string[]
   impactMetric?: string
   techStack?: string[]
+  videoUrl?: string
 }

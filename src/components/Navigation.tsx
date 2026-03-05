@@ -33,7 +33,7 @@ export function Navigation({ activeSection }: NavigationProps) {
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl bg-white/90 border-b border-vibrant-slate/10"
+        className="fixed top-0 left-0 right-0 z-50 backdrop-blur-2xl bg-white/90 border-b border-[#1A1A1A]/10"
       >
         <div className="max-w-[1400px] mx-auto px-8 md:px-12 lg:px-16 py-5">
           <div className="flex items-center justify-between">
@@ -43,9 +43,9 @@ export function Navigation({ activeSection }: NavigationProps) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => scrollToSection('home')}
-              className="text-xl font-bold text-vibrant-slate tracking-tight"
+              className="text-xl font-bold text-[#1A1A1A] tracking-tight"
             >
-              SU
+              Radixs
             </motion.button>
 
             {/* Desktop Navigation */}
@@ -58,15 +58,15 @@ export function Navigation({ activeSection }: NavigationProps) {
                   whileTap={{ scale: 0.95 }}
                   className={`relative px-5 py-2.5 font-medium text-sm rounded-full transition-all duration-300 ${
                     activeSection === item.id
-                      ? 'text-white'
-                      : 'text-vibrant-slate/70 hover:text-vibrant-slate'
+                      ? 'text-white shadow-lg shadow-[#2C5F4E]/30'
+                      : 'text-[#1A1A1A]/70 hover:text-[#1A1A1A]'
                   }`}
                 >
                   {item.label}
                   {activeSection === item.id && (
                     <motion.div
                       layoutId="navIndicator"
-                      className="absolute inset-0 bg-vibrant-purple rounded-full -z-10"
+                      className="absolute inset-0 bg-[#2C5F4E] rounded-full -z-10 hover:bg-[#2C5F4E]-light"
                       transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
                     />
                   )}
@@ -77,7 +77,7 @@ export function Navigation({ activeSection }: NavigationProps) {
             {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="md:hidden p-2 text-vibrant-slate hover:bg-vibrant-slate/10 rounded-lg transition-colors"
+              className="md:hidden p-2 text-[#1A1A1A] hover:bg-[#1A1A1A]/10 rounded-lg transition-colors"
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
@@ -104,10 +104,10 @@ export function Navigation({ activeSection }: NavigationProps) {
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1, duration: 0.5 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`block w-full text-left text-2xl font-bold py-5 px-6 rounded-2xl transition-all ${
+                    className={`block w-full text-left text-2xl font-bold py-5 px-6 rounded-2xl transition-all duration-300 ${
                       activeSection === item.id
-                        ? 'bg-vibrant-purple text-white'
-                        : 'text-vibrant-slate hover:bg-vibrant-slate/10'
+                        ? 'bg-[#2C5F4E] text-white shadow-lg shadow-[#2C5F4E]/30'
+                        : 'text-[#1A1A1A] hover:bg-[#2C5F4E]-light/10 hover:text-[#2C5F4E]-light'
                     }`}
                   >
                     {item.label}

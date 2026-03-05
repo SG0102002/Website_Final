@@ -31,12 +31,12 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 md:p-8"
           onClick={onClose}
         >
           {/* Backdrop */}
           <motion.div
-            className="absolute inset-0 bg-vibrant-slate/60 backdrop-blur-md"
+            className="absolute inset-0 bg-black/40 backdrop-blur-sm"
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
@@ -44,95 +44,114 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
 
           {/* Modal */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.95, y: 20 }}
+            initial={{ opacity: 0, scale: 0.98, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
-            exit={{ opacity: 0, scale: 0.95, y: 20 }}
-            transition={{ type: 'spring', duration: 0.5 }}
+            exit={{ opacity: 0, scale: 0.98, y: 20 }}
+            transition={{ type: 'spring', duration: 0.4, bounce: 0 }}
             onClick={(e) => e.stopPropagation()}
-            className="relative w-full max-w-4xl max-h-[90vh] overflow-auto backdrop-blur-xl bg-white/90 rounded-3xl shadow-2xl border border-vibrant-slate/10"
+            className="relative w-full max-w-5xl max-h-[90vh] overflow-auto shadow-2xl"
+            style={{ backgroundColor: '#FFFFFF' }}
           >
             {/* Close Button */}
             <button
               onClick={onClose}
-              className="absolute top-6 right-6 p-2 rounded-full bg-vibrant-slate/10 hover:bg-vibrant-slate/20 transition-colors z-10"
+              className="absolute top-6 right-6 p-2 transition-colors z-10 group"
+              style={{ backgroundColor: 'transparent' }}
+              onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#F5F5F5'}
+              onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             >
-              <X className="w-6 h-6 text-vibrant-slate" />
+              <X className="w-5 h-5" style={{ color: '#666666' }} />
             </button>
 
-            <div className="p-8 md:p-12 space-y-8">
+            <div className="p-10 md:p-16 space-y-12">
 
               {/* Header */}
-              <div className="space-y-4">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0 w-14 h-14 rounded-2xl bg-vibrant-purple/20 flex items-center justify-center border border-vibrant-purple/30">
-                    <span className="text-2xl font-mono text-vibrant-purple font-bold">
-                      {service.id}
-                    </span>
-                  </div>
-                  <div className="flex-1">
-                    <h2 className="text-3xl md:text-4xl font-bold text-vibrant-slate leading-tight">
-                      {service.title}
-                    </h2>
-                  </div>
-                </div>
-
-                <p className="text-lg text-vibrant-slate/70 leading-relaxed">
+              <div className="space-y-6 pb-10" style={{ borderBottom: `1px solid #E5E5E5` }}>
+                <h2 className="text-4xl md:text-5xl font-bold leading-tight tracking-tight" style={{ color: '#1A1A1A' }}>
+                  {service.title}
+                </h2>
+                <p className="text-xl leading-relaxed max-w-3xl" style={{ color: '#666666' }}>
                   {service.fullDescription}
                 </p>
               </div>
 
-              {/* Designed For Section */}
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-vibrant-purple/5 to-transparent border border-vibrant-purple/20">
-                <h3 className="text-sm font-mono font-semibold text-vibrant-purple uppercase tracking-wider mb-4">
-                  Designed For
-                </h3>
-                <ul className="grid md:grid-cols-2 gap-3">
-                  {service.designedFor.map((audience, idx) => (
-                    <li key={idx} className="flex items-start gap-2">
-                      <span className="flex-shrink-0 w-1.5 h-1.5 rounded-full bg-vibrant-purple mt-2" />
-                      <span className="text-vibrant-slate/80">{audience}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
+              {/* Video Demo - clean, minimal integration */}
+              {service.videoUrl && (
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#999999' }}>
+                    Solution Overview
+                  </h3>
+                  <div className="relative overflow-hidden" style={{ backgroundColor: '#F5F5F5', border: `1px solid #E5E5E5` }}>
+                    <video
+                      src={service.videoUrl}
+                      controls
+                      muted
+                      loop
+                      playsInline
+                      className="w-full aspect-video object-contain"
+                      preload="metadata"
+                    >
+                      Your browser does not support the video tag.
+                    </video>
+                  </div>
+                </div>
+              )}
 
-              {/* Benefits Section */}
-              <div>
-                <h3 className="text-sm font-mono font-semibold text-vibrant-slate/60 uppercase tracking-wider mb-4">
-                  What We Build
-                </h3>
-                <ul className="space-y-3">
-                  {service.benefits.map((benefit, idx) => (
-                    <li key={idx} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-6 h-6 rounded-lg bg-vibrant-purple/20 flex items-center justify-center mt-0.5">
-                        <svg className="w-3 h-3 text-vibrant-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M5 13l4 4L19 7" />
+              {/* Two Column Layout */}
+              <div className="grid md:grid-cols-2 gap-12">
+
+                {/* Left Column - Designed For */}
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#999999' }}>
+                    Designed For
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.designedFor.map((audience, idx) => (
+                      <li key={idx} className="flex items-start gap-3" style={{ color: '#1A1A1A' }}>
+                        <span className="mt-1" style={{ color: '#2C5F4E' }}>•</span>
+                        <span>{audience}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Right Column - Capabilities */}
+                <div className="space-y-4">
+                  <h3 className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#999999' }}>
+                    Capabilities
+                  </h3>
+                  <ul className="space-y-3">
+                    {service.benefits.map((benefit, idx) => (
+                      <li key={idx} className="flex items-start gap-3" style={{ color: '#1A1A1A' }}>
+                        <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" style={{ color: '#2C5F4E' }}>
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                         </svg>
-                      </div>
-                      <span className="text-vibrant-slate/80 leading-relaxed">{benefit}</span>
-                    </li>
-                  ))}
-                </ul>
+                        <span>{benefit}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
 
-              {/* Impact Metric */}
+              {/* Impact Statement */}
               {service.impactMetric && (
-                <div className="p-5 rounded-xl bg-vibrant-slate/5 border-l-4 border-vibrant-purple">
-                  <p className="text-vibrant-slate/80 leading-relaxed italic">
+                <div className="p-6" style={{ backgroundColor: '#F5F5F5', borderLeft: `3px solid #2C5F4E` }}>
+                  <p className="leading-relaxed" style={{ color: '#1A1A1A' }}>
                     {service.impactMetric}
                   </p>
                 </div>
               )}
 
-              {/* Tech Stack */}
+              {/* Tech Stack - Minimal */}
               {service.techStack && service.techStack.length > 0 && (
-                <div className="space-y-3">
-                  <p className="text-sm font-mono text-vibrant-slate/60 uppercase tracking-wider">Technologies</p>
+                <div className="space-y-3 pt-6" style={{ borderTop: `1px solid #E5E5E5` }}>
+                  <p className="text-sm font-semibold uppercase tracking-wide" style={{ color: '#999999' }}>Technology Stack</p>
                   <div className="flex flex-wrap gap-2">
                     {service.techStack.map((tech) => (
                       <span
                         key={tech}
-                        className="px-4 py-2 text-sm font-mono rounded-full bg-vibrant-slate/10 text-vibrant-slate border border-vibrant-slate/20 hover:border-vibrant-purple/40 transition-colors"
+                        className="px-3 py-1 text-sm"
+                        style={{ backgroundColor: '#F5F5F5', color: '#1A1A1A', border: `1px solid #E5E5E5` }}
                       >
                         {tech}
                       </span>
@@ -141,14 +160,23 @@ export function ServiceModal({ isOpen, onClose, service }: ServiceModalProps) {
                 </div>
               )}
 
-              {/* CTA */}
-              <div className="pt-4">
+              {/* CTA - Clean Button */}
+              <div className="pt-8">
                 <Button
                   onClick={scrollToContact}
                   size="lg"
-                  className="w-full bg-vibrant-purple hover:bg-vibrant-purple-dark text-white font-semibold rounded-full transition-all duration-300 hover:shadow-xl hover:shadow-vibrant-purple/25 py-6 text-lg"
+                  className="w-full md:w-auto text-white font-medium px-8 py-6 text-base transition-all"
+                  style={{ backgroundColor: '#2C5F4E' }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = '#234A3D'
+                    e.currentTarget.style.transform = 'translateY(-2px)'
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = '#2C5F4E'
+                    e.currentTarget.style.transform = 'translateY(0)'
+                  }}
                 >
-                  Let&apos;s Discuss Your Project
+                  Discuss Your Project
                 </Button>
               </div>
 

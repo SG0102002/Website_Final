@@ -27,7 +27,8 @@ const services: Service[] = [
       'Improve reporting accuracy'
     ],
     impactMetric: 'Especially valuable for firms handling financial audits, property reconciliations, cost tracking, and compliance reporting.',
-    techStack: ['Python', 'Pandas', 'openpyxl', 'FastAPI', 'Excel API']
+    techStack: ['Python', 'Pandas', 'openpyxl', 'FastAPI', 'Excel API'],
+    videoUrl: '/assets/videos/excel-comparison-demo.mov'
   },
   {
     id: '02',
@@ -106,7 +107,8 @@ const services: Service[] = [
       'Improve data consistency across projects',
       'Support scalable digital construction processes'
     ],
-    impactMetric: 'Helps firms modernize their workflows while maintaining efficiency and project accuracy.'
+    impactMetric: 'Helps firms modernize their workflows while maintaining efficiency and project accuracy.',
+    videoUrl: '/assets/videos/cad2bim-demo.mov'
   }
 ]
 
@@ -115,10 +117,10 @@ export function ServicesGrid() {
 
   return (
     <>
-      <div className="bg-vibrant-dark relative overflow-hidden">
+      <div className="relative overflow-hidden" style={{ backgroundColor: '#2C5F4E' }}>
         {/* Subtle dot pattern background */}
-        <div className="absolute inset-0 opacity-[0.03]" style={{
-          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(124 58 237) 1px, transparent 0)`,
+        <div className="absolute inset-0 opacity-[0.015]" style={{
+          backgroundImage: `radial-gradient(circle at 1px 1px, rgb(184 149 106) 1px, transparent 0)`,
           backgroundSize: '40px 40px'
         }} />
 
@@ -132,7 +134,7 @@ export function ServicesGrid() {
             transition={{ duration: 0.8 }}
             className="text-center mb-16 space-y-4"
           >
-            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase text-vibrant-purple mb-2">
+            <span className="inline-block text-xs font-semibold tracking-[0.25em] uppercase mb-2 text-white/70">
               What We Build
             </span>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
@@ -143,35 +145,44 @@ export function ServicesGrid() {
             </p>
           </motion.div>
 
-          {/* Services Grid - 3 columns on larger screens for 5 services */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {services.map((service, index) => (
+          {/* Services Grid - First 3 in row, last 2 centered */}
+          <div className="space-y-6 lg:space-y-8">
+            {/* First row - 3 services */}
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+              {services.slice(0, 3).map((service, index) => (
               <motion.div
                 key={service.id}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1, duration: 0.6 }}
-                whileHover={{ y: -8 }}
+                whileHover={{ y: -4 }}
                 onClick={() => setSelectedService(service)}
-                className="group relative p-8 rounded-2xl bg-white/8 border border-white/20 hover:border-vibrant-purple/60 hover:shadow-2xl hover:shadow-vibrant-purple/30 transition-all duration-500 cursor-pointer overflow-hidden backdrop-blur-sm"
+                className="group relative p-8 bg-white/5 border border-white/10 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-sm"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#B8956A'
+                  e.currentTarget.style.backgroundColor = 'rgba(184, 149, 106, 0.08)'
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(184, 149, 106, 0.15)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)'
+                  e.currentTarget.style.boxShadow = ''
+                }}
               >
-                {/* Purple glow on hover */}
-                <div className="absolute inset-0 bg-gradient-to-br from-vibrant-purple/0 to-vibrant-purple/0 group-hover:from-vibrant-purple/10 group-hover:to-transparent transition-all duration-500 rounded-2xl" />
-
                 <div className="relative space-y-4">
                   {/* Service Number */}
                   <div className="flex items-start justify-between">
-                    <span className="text-5xl font-mono font-bold text-vibrant-purple/60 group-hover:text-vibrant-purple transition-colors">
+                    <span className="text-5xl font-mono font-bold text-white/20 group-hover:text-[#B8956A]/40 transition-colors duration-300">
                       {service.id}
                     </span>
-                    <div className="p-2 rounded-full bg-vibrant-purple/30 group-hover:bg-vibrant-purple/40 transition-colors">
-                      <ArrowUpRight className="w-5 h-5 text-vibrant-purple-light" />
+                    <div className="p-2 bg-white/10 group-hover:bg-[#B8956A]/20 transition-all duration-300">
+                      <ArrowUpRight className="w-5 h-5 text-white group-hover:text-[#B8956A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
                     </div>
                   </div>
 
                   {/* Title */}
-                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-vibrant-purple transition-colors">
+                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#B8956A] transition-colors duration-300">
                     {service.title}
                   </h3>
 
@@ -182,13 +193,69 @@ export function ServicesGrid() {
 
                   {/* Learn More */}
                   <div className="pt-2">
-                    <span className="text-sm font-semibold text-vibrant-purple-light group-hover:text-white group-hover:underline transition-colors">
+                    <span className="text-sm font-semibold text-white group-hover:text-[#B8956A] group-hover:underline transition-all duration-300">
                       Learn More →
                     </span>
                   </div>
                 </div>
               </motion.div>
-            ))}
+              ))}
+            </div>
+
+            {/* Second row - 2 services centered */}
+            <div className="grid md:grid-cols-2 gap-6 lg:gap-8 max-w-4xl mx-auto">
+              {services.slice(3, 5).map((service, index) => (
+              <motion.div
+                key={service.id}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1, duration: 0.6 }}
+                whileHover={{ y: -4 }}
+                onClick={() => setSelectedService(service)}
+                className="group relative p-8 bg-white/5 border border-white/10 hover:shadow-xl transition-all duration-300 cursor-pointer overflow-hidden backdrop-blur-sm"
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = '#B8956A'
+                  e.currentTarget.style.backgroundColor = 'rgba(184, 149, 106, 0.08)'
+                  e.currentTarget.style.boxShadow = '0 0 30px rgba(184, 149, 106, 0.15)'
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = 'rgba(255, 255, 255, 0.1)'
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.05)'
+                  e.currentTarget.style.boxShadow = ''
+                }}
+              >
+                <div className="relative space-y-4">
+                  {/* Service Number */}
+                  <div className="flex items-start justify-between">
+                    <span className="text-5xl font-mono font-bold text-white/20 group-hover:text-[#B8956A]/40 transition-colors duration-300">
+                      {service.id}
+                    </span>
+                    <div className="p-2 bg-white/10 group-hover:bg-[#B8956A]/20 transition-all duration-300">
+                      <ArrowUpRight className="w-5 h-5 text-white group-hover:text-[#B8956A] group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+                    </div>
+                  </div>
+
+                  {/* Title */}
+                  <h3 className="text-2xl md:text-3xl font-bold text-white group-hover:text-[#B8956A] transition-colors duration-300">
+                    {service.title}
+                  </h3>
+
+                  {/* Description */}
+                  <p className="text-white/70 leading-relaxed line-clamp-3">
+                    {service.shortDescription}
+                  </p>
+
+                  {/* Learn More */}
+                  <div className="pt-2">
+                    <span className="text-sm font-semibold text-white group-hover:text-[#B8956A] group-hover:underline transition-all duration-300">
+                      Learn More →
+                    </span>
+                  </div>
+                </div>
+              </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </div>

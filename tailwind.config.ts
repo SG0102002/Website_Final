@@ -10,23 +10,52 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			// Clean minimal color scheme - White and Green only
+  			'radixs-bg': '#FFFFFF',
+  			'radixs-surface': '#FFFFFF',
+  			'radixs-text': '#1A1A1A',
+  			'radixs-text-muted': '#666666',
+  			'radixs-border': '#E5E5E5',
+  			'radixs-green': '#2C5F4E',
+  			'radixs-green-hover': '#234A3D',
+  			// All colors now use GREEN for consistency
   			vibrant: {
-  				white: '#FAFAFA',
+  				white: '#FFFFFF',
   				green: {
-  					DEFAULT: '#10B981',
-  					dark: '#059669',
-  					light: '#34D399'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					glow: 'rgba(44, 95, 78, 0.2)'
+  				},
+  				terracotta: {
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					accent: '#2C5F4E',
+  					glow: 'rgba(44, 95, 78, 0.2)'
   				},
   				purple: {
-  					DEFAULT: '#8B5CF6',
-  					dark: '#7C3AED',
-  					light: '#A78BFA',
-  					glow: 'rgba(139, 92, 246, 0.2)'
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					glow: 'rgba(44, 95, 78, 0.2)'
   				},
-  				slate: '#0F172A',
+  				bronze: {
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					glow: 'rgba(44, 95, 78, 0.2)'
+  				},
+  				amber: {
+  					DEFAULT: '#2C5F4E',
+  					dark: '#234A3D',
+  					light: '#3C7A64',
+  					gold: '#2C5F4E'
+  				},
+  				slate: '#1A1A1A',
   				dark: {
-  					DEFAULT: '#1E293B',
-  					alt: '#0F172A'
+  					DEFAULT: '#1A1A1A',
+  					alt: '#1A1A1A'
   				}
   			},
   			background: 'hsl(var(--background))',

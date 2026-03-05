@@ -17,7 +17,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "SU - Build Systems That Work",
+  title: "Radixs",
   description: "We design automation and intelligent systems that reduce manual work, improve decision-making, and scale reliably.",
 };
 

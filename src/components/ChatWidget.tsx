@@ -105,7 +105,7 @@ export function ChatWidget() {
     } catch (error) {
       console.error('Chat error:', error)
       addBotMessage(
-        "Sorry, I'm having trouble connecting right now. Please try again or email us at samiragele010@gmail.com"
+        "Sorry, I'm having trouble connecting right now. Please try again or email us at radixs2402@gmail.com"
       )
     }
   }
@@ -136,7 +136,7 @@ export function ChatWidget() {
                 addBotMessage(WELCOME_MESSAGE, QUICK_ACTIONS)
               }
             }}
-            className="fixed bottom-6 right-6 w-16 h-16 bg-vibrant-purple text-white rounded-full shadow-2xl shadow-vibrant-purple/40 flex items-center justify-center hover:bg-vibrant-purple-dark transition-all z-50"
+            className="fixed bottom-6 right-6 w-16 h-16 bg-vibrant-purple text-white rounded-full shadow-2xl shadow-vibrant-purple/40 flex items-center justify-center hover:bg-vibrant-purple-light hover:scale-110 hover:shadow-vibrant-purple-light/60 transition-all duration-300 z-50"
             aria-label="Open chat"
           >
             <MessageCircle className="w-7 h-7" />
@@ -160,7 +160,7 @@ export function ChatWidget() {
             className="fixed bottom-6 right-6 w-[380px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 border border-vibrant-purple/20"
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-vibrant-purple to-purple-600 text-white p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-vibrant-purple to-vibrant-green text-white p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center relative">
                   <MessageCircle className="w-5 h-5" />
@@ -219,7 +219,7 @@ export function ChatWidget() {
                               <button
                                 key={action.id}
                                 onClick={() => handleQuickAction(action)}
-                                className="px-3 py-1.5 bg-purple-50 hover:bg-purple-100 text-vibrant-purple text-xs rounded-full transition-colors border border-purple-200"
+                                className="px-3 py-1.5 bg-orange-50 hover:bg-orange-100 text-vibrant-terracotta text-xs rounded-full transition-colors border border-orange-200"
                               >
                                 {action.label}
                               </button>
@@ -261,7 +261,7 @@ export function ChatWidget() {
                     <button
                       type="submit"
                       disabled={!inputValue.trim() || isTyping}
-                      className="px-4 py-2.5 bg-vibrant-purple text-white rounded-xl hover:bg-vibrant-purple-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-4 py-2.5 bg-vibrant-purple text-white rounded-xl hover:bg-vibrant-purple-light hover:shadow-md hover:shadow-vibrant-purple-light/40 transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
                       aria-label="Send message"
                     >
                       <Send className="w-4 h-4" />

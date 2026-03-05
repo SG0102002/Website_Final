@@ -55,16 +55,16 @@ export function InteractiveBackground() {
       // Clear canvas
       ctx.clearRect(0, 0, width, height)
 
-      // Animated color cycling - subtle shift between purple shades
+      // Animated color cycling - subtle shift between green shades
       const time = (Date.now() - startTime) * 0.0003 // Slow cycle speed
       const cycle = (Math.sin(time) + 1) / 2 // 0 to 1 oscillation
 
-      // Color palette (RGB values)
-      const vibrantPurple = [139, 92, 246]     // #8B5CF6
-      const lightPurple = [167, 139, 250]      // #A78BFA
+      // Color palette (RGB values) - Green shades
+      const deepGreen = [44, 95, 78]           // #2C5F4E (Deep Green)
+      const mediumGreen = [35, 74, 61]         // #234A3D (Medium Green)
 
       // Interpolate between colors
-      const currentColor = lerpColor(vibrantPurple, lightPurple, cycle)
+      const currentColor = lerpColor(deepGreen, mediumGreen, cycle)
       const [r, g, b] = currentColor
 
       // Main gradient that follows cursor with animated colors
@@ -86,7 +86,7 @@ export function InteractiveBackground() {
       ctx.fillRect(0, 0, width, height)
 
       // Secondary gradient with slightly shifted color (inverse cycle)
-      const secondaryColor = lerpColor(lightPurple, vibrantPurple, cycle)
+      const secondaryColor = lerpColor(mediumGreen, deepGreen, cycle)
       const [r2, g2, b2] = secondaryColor
 
       const gradient2 = ctx.createRadialGradient(
@@ -105,8 +105,9 @@ export function InteractiveBackground() {
       ctx.fillStyle = gradient2
       ctx.fillRect(0, 0, width, height)
 
-      // Third ambient glow with pulsing effect
-      const pulseColor = lerpColor(vibrantPurple, lightPurple, cycle * 0.5)
+      // Third ambient glow with pulsing effect (lighter green accent)
+      const lightGreen = [60, 130, 108]        // Lighter green accent
+      const pulseColor = lerpColor(deepGreen, lightGreen, cycle * 0.3)
       const [r3, g3, b3] = pulseColor
 
       const gradient3 = ctx.createRadialGradient(
