@@ -94,23 +94,23 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative backdrop-blur-xl bg-white/90 p-10 md:p-12 rounded-3xl shadow-2xl" style={{ border: '1px solid #E5E5E5' }}>
+          <div className="relative bg-white p-10 md:p-12 rounded-lg shadow-lg" style={{ border: '1px solid #E5E5E5' }}>
 
             {/* Tab Buttons */}
-            <div className="flex gap-2 mb-8 p-1 rounded-2xl" style={{ backgroundColor: '#F5F5F5' }}>
+            <div className="flex gap-1 mb-8 border-b" style={{ borderColor: '#E5E5E5' }}>
               <button
                 type="button"
                 onClick={() => setActiveTab('contact')}
-                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2`}
-                style={activeTab === 'contact' ? { backgroundColor: '#2C5F4E', color: '#FFFFFF' } : { color: '#666666' }}
+                className={`flex-1 px-6 py-3 font-medium transition-all duration-300 flex items-center justify-center gap-2 border-b-2`}
+                style={activeTab === 'contact' ? { borderColor: '#2C5F4E', color: '#2C5F4E' } : { borderColor: 'transparent', color: '#666666' }}
                 onMouseEnter={(e) => {
                   if (activeTab !== 'contact') {
-                    e.currentTarget.style.backgroundColor = '#E5E5E5'
+                    e.currentTarget.style.color = '#1A1A1A'
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeTab !== 'contact') {
-                    e.currentTarget.style.backgroundColor = 'transparent'
+                    e.currentTarget.style.color = '#666666'
                   }
                 }}
               >
@@ -120,16 +120,16 @@ export function Contact() {
               <button
                 type="button"
                 onClick={() => setActiveTab('booking')}
-                className={`flex-1 px-6 py-3 rounded-xl font-medium transition-all duration-300 flex items-center justify-center gap-2`}
-                style={activeTab === 'booking' ? { backgroundColor: '#2C5F4E', color: '#FFFFFF' } : { color: '#666666' }}
+                className={`flex-1 px-6 py-3 font-medium transition-all duration-300 flex items-center justify-center gap-2 border-b-2`}
+                style={activeTab === 'booking' ? { borderColor: '#2C5F4E', color: '#2C5F4E' } : { borderColor: 'transparent', color: '#666666' }}
                 onMouseEnter={(e) => {
                   if (activeTab !== 'booking') {
-                    e.currentTarget.style.backgroundColor = '#E5E5E5'
+                    e.currentTarget.style.color = '#1A1A1A'
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (activeTab !== 'booking') {
-                    e.currentTarget.style.backgroundColor = 'transparent'
+                    e.currentTarget.style.color = '#666666'
                   }
                 }}
               >
@@ -152,7 +152,7 @@ export function Contact() {
                     type="text"
                     id="name"
                     {...register('name')}
-                    className="px-5 py-6 bg-white rounded-xl focus:ring-2 transition-all"
+                    className="px-4 py-3 bg-white rounded-md focus:ring-2 transition-all"
                     style={{ borderColor: '#E5E5E5', color: '#1A1A1A' }}
                     placeholder="Your name"
                     aria-invalid={errors.name ? 'true' : 'false'}
@@ -178,7 +178,7 @@ export function Contact() {
                     type="email"
                     id="email"
                     {...register('email')}
-                    className="px-5 py-6 bg-white rounded-xl focus:ring-2 transition-all"
+                    className="px-4 py-3 bg-white rounded-md focus:ring-2 transition-all"
                     style={{ borderColor: '#E5E5E5', color: '#1A1A1A' }}
                     placeholder="your@email.com"
                     aria-invalid={errors.email ? 'true' : 'false'}
@@ -206,9 +206,9 @@ export function Contact() {
                   id="message"
                   {...register('message')}
                   rows={5}
-                  className="px-5 py-4 bg-white rounded-xl focus:ring-2 resize-none transition-all"
+                  className="px-4 py-3 bg-white rounded-md focus:ring-2 resize-none transition-all"
                   style={{ borderColor: '#E5E5E5', color: '#1A1A1A' }}
-                  placeholder="Share your vision with us..."
+                  placeholder="Tell us about your project..."
                   aria-invalid={errors.message ? 'true' : 'false'}
                   onFocus={(e) => {
                     e.currentTarget.style.borderColor = '#2C5F4E'
@@ -229,9 +229,9 @@ export function Contact() {
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={!isSubmitting ? { scale: 1.05, y: -2 } : {}}
+                  whileHover={!isSubmitting ? { y: -1 } : {}}
                   whileTap={!isSubmitting ? { scale: 0.98 } : {}}
-                  className="w-full sm:w-auto px-10 py-4 text-white font-semibold rounded-full hover:shadow-xl transition-all duration-300 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="w-full sm:w-auto px-8 py-3 text-white font-medium rounded-md hover:shadow-lg transition-all duration-200 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                   style={{ backgroundColor: '#2C5F4E' }}
                   onMouseEnter={(e) => {
                     if (!isSubmitting) {
