@@ -59,7 +59,7 @@ export function Contact() {
   }
 
   return (
-    <section id="contact" className="relative py-32 px-8 md:px-12 lg:px-16 overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
+    <section id="contact" className="relative py-16 sm:py-32 px-4 sm:px-8 md:px-12 lg:px-16 overflow-hidden" style={{ backgroundColor: '#FFFFFF' }}>
       {/* Clean white background - no patterns, no gradients */}
 
       <div className="max-w-[900px] mx-auto relative z-10">
@@ -94,14 +94,14 @@ export function Contact() {
           viewport={{ once: true }}
           transition={{ delay: 0.2, duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
         >
-          <div className="relative bg-white p-10 md:p-12 rounded-lg shadow-lg" style={{ border: '1px solid #E5E5E5' }}>
+          <div className="relative bg-white p-4 sm:p-8 md:p-12 rounded-lg shadow-lg" style={{ border: '1px solid #E5E5E5' }}>
 
             {/* Tab Buttons */}
-            <div className="flex gap-1 mb-8 border-b" style={{ borderColor: '#E5E5E5' }}>
+            <div className="flex gap-1 mb-6 sm:mb-8 border-b" style={{ borderColor: '#E5E5E5' }}>
               <button
                 type="button"
                 onClick={() => setActiveTab('contact')}
-                className={`flex-1 px-6 py-3 font-medium transition-all duration-300 flex items-center justify-center gap-2 border-b-2`}
+                className={`flex-1 px-3 sm:px-6 py-3 font-medium text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 border-b-2`}
                 style={activeTab === 'contact' ? { borderColor: '#2C5F4E', color: '#2C5F4E' } : { borderColor: 'transparent', color: '#666666' }}
                 onMouseEnter={(e) => {
                   if (activeTab !== 'contact') {
@@ -120,7 +120,7 @@ export function Contact() {
               <button
                 type="button"
                 onClick={() => setActiveTab('booking')}
-                className={`flex-1 px-6 py-3 font-medium transition-all duration-300 flex items-center justify-center gap-2 border-b-2`}
+                className={`flex-1 px-3 sm:px-6 py-3 font-medium text-sm sm:text-base transition-all duration-300 flex items-center justify-center gap-1.5 sm:gap-2 border-b-2`}
                 style={activeTab === 'booking' ? { borderColor: '#2C5F4E', color: '#2C5F4E' } : { borderColor: 'transparent', color: '#666666' }}
                 onMouseEnter={(e) => {
                   if (activeTab !== 'booking') {
@@ -248,12 +248,12 @@ export function Contact() {
                   <Send className="w-4 h-4" />
                 </motion.button>
 
-                <div className="flex items-center gap-2 text-sm" style={{ color: '#666666' }}>
-                  <Mail size={16} strokeWidth={1.5} />
+                <div className="flex items-center gap-2 text-xs sm:text-sm flex-wrap" style={{ color: '#666666' }}>
+                  <Mail size={16} strokeWidth={1.5} className="shrink-0" />
                   <span>or email</span>
                   <a
                     href="mailto:radixs2402@gmail.com"
-                    className="hover:underline font-medium transition-all"
+                    className="hover:underline font-medium transition-all break-all"
                     style={{ color: '#2C5F4E' }}
                   >
                     radixs2402@gmail.com

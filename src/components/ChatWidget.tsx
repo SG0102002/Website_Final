@@ -136,7 +136,7 @@ export function ChatWidget() {
                 addBotMessage(WELCOME_MESSAGE, QUICK_ACTIONS)
               }
             }}
-            className="fixed bottom-6 right-6 w-16 h-16 bg-vibrant-purple text-white rounded-full shadow-2xl shadow-vibrant-purple/40 flex items-center justify-center hover:bg-vibrant-purple-light hover:scale-110 hover:shadow-vibrant-purple-light/60 transition-all duration-300 z-50"
+            className="fixed bottom-4 right-4 sm:bottom-6 sm:right-6 w-14 h-14 sm:w-16 sm:h-16 bg-vibrant-purple text-white rounded-full shadow-2xl shadow-vibrant-purple/40 flex items-center justify-center hover:bg-vibrant-purple-light hover:scale-110 hover:shadow-vibrant-purple-light/60 transition-all duration-300 z-50"
             aria-label="Open chat"
           >
             <MessageCircle className="w-7 h-7" />
@@ -157,7 +157,7 @@ export function ChatWidget() {
             }}
             exit={{ opacity: 0, y: 100, scale: 0.8 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
-            className="fixed bottom-6 right-6 w-[380px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden z-50 border border-vibrant-purple/20"
+            className="fixed bottom-0 right-0 w-full sm:bottom-6 sm:right-6 sm:w-[380px] bg-white sm:rounded-2xl rounded-t-2xl shadow-2xl flex flex-col overflow-hidden z-50 border border-vibrant-purple/20"
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-vibrant-purple to-vibrant-green text-white p-4 flex items-center justify-between">
