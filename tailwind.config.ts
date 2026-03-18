@@ -11,13 +11,13 @@ const config: Config = {
   	extend: {
   		colors: {
   			// Clean minimal color scheme - White and Green only
-  			'radixs-bg': '#FFFFFF',
-  			'radixs-surface': '#FFFFFF',
-  			'radixs-text': '#1A1A1A',
-  			'radixs-text-muted': '#666666',
-  			'radixs-border': '#E5E5E5',
-  			'radixs-green': '#2C5F4E',
-  			'radixs-green-hover': '#234A3D',
+  			'radixc-bg': '#FFFFFF',
+  			'radixc-surface': '#FFFFFF',
+  			'radixc-text': '#1A1A1A',
+  			'radixc-text-muted': '#666666',
+  			'radixc-border': '#E5E5E5',
+  			'radixc-green': '#2C5F4E',
+  			'radixc-green-hover': '#234A3D',
   			// All colors now use GREEN for consistency
   			vibrant: {
   				white: '#FFFFFF',

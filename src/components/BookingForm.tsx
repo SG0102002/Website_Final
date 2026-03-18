@@ -262,9 +262,9 @@ export function BookingForm() {
               setPhoneNumber('')
               setValue('phone', e.target.value)
             }}
-            className="px-4 bg-white border border-[#1A1A1A]/20 text-[#1A1A1A] rounded-md focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all h-[42px]"
+            className="px-2 sm:px-4 bg-white border border-[#1A1A1A]/20 text-[#1A1A1A] rounded-md focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all h-[42px] text-sm sm:text-base"
             style={{
-              minWidth: '140px',
+              minWidth: '100px',
               appearance: 'none',
               backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231A1A1A' d='M6 9L1 4h10z'/%3E%3C/svg%3E")`,
               backgroundRepeat: 'no-repeat',
@@ -284,7 +284,7 @@ export function BookingForm() {
             id="booking-phone"
             value={phoneNumber}
             onChange={handlePhoneChange}
-            className="px-4 bg-white border border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-md focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all flex-1 h-[42px]"
+            className="px-3 sm:px-4 bg-white border border-[#1A1A1A]/20 text-[#1A1A1A] placeholder-[#1A1A1A]/40 rounded-md focus:ring-2 focus:ring-[#2C5F4E] focus:border-[#2C5F4E] transition-all flex-1 min-w-0 h-[42px]"
             placeholder={COUNTRIES.find(c => c.code === countryCode)?.format.replace(/X/g, '0') || '12-345 6789'}
             aria-invalid={errors.phone ? 'true' : 'false'}
           />
@@ -377,7 +377,7 @@ export function BookingForm() {
       </div>
 
       {/* Availability Info */}
-      <div className="rounded-md p-4" style={{ backgroundColor: '#F5F5F5', border: '1px solid #E5E5E5' }}>
+      <div className="rounded-md p-3 sm:p-4" style={{ backgroundColor: '#F5F5F5', border: '1px solid #E5E5E5' }}>
         <p className="text-sm font-semibold mb-2" style={{ color: '#1A1A1A' }}>Availability</p>
         <ul className="text-sm space-y-1" style={{ color: '#666666' }}>
           <li>• <strong>Weekdays:</strong> 5:00 PM - 10:00 PM</li>
